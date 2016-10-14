@@ -13,6 +13,7 @@ Ogni volta che al server viene inoltrata la parola presente in
 "wordSequence", viene incrementato il contatore "stopCounter" che una 
 volta giunto a 3 interromperà la comunicazione con il socket connesso.
 Quando "stopCounter" arriverà a 3:
+
 1) Verrà settata la variabile "stopped" del server a true, così il 
 server terminerà la comunicazione con il client connesso, e si potrà 
 mettere in ascolto di eventuali altri client.
