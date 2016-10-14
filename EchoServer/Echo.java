@@ -46,10 +46,10 @@ public class Echo {
 						 os.println("exit");
 					 }else{
 						Thread.sleep(1000);
-						System.out.println("Ricevuto: "+line);
-						os.println("ECHO " + line); 
-						System.out.println("word: "+wordSequence);
-						System.out.println("stopCounter: "+stopCounter);
+						os.println("ECHO " + line);
+						//System.out.println("Ricevuto: "+line); Messaggi di debug 
+						//System.out.println("word: "+wordSequence);
+						//System.out.println("stopCounter: "+stopCounter);
 					 }
 					 System.out.println(stopped);
 				}
