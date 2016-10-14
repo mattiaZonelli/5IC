@@ -51,7 +51,7 @@ public class Echo {
 						//System.out.println("word: "+wordSequence);
 						//System.out.println("stopCounter: "+stopCounter);
 					 }
-					 System.out.println(stopped);
+					 //System.out.println(stopped);
 				}
 			} catch (IOException e) {
 				System.out.println(e);
