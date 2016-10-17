@@ -6,52 +6,69 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- * @author swapnil.paul
+ * @author SWAPNIL PAUL 5Ic
  */
 public class EchoServer {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        System.out.println("************ Echo Server ************");
         ServerSocket echoServer = null;
         String line;
         BufferedReader is;
         PrintStream os;
-
-        Socket clientSocket = null;
-
+        echoServer = new ServerSocket(9090);
+        System.out.println("ServerSocket is running at port 9090");
+        boolean connection = false;
         try {
-            echoServer = new ServerSocket(9090);
-            System.out.println("ServerSocket sta girando sulla porta 9090");
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        try {
-            clientSocket = echoServer.accept();
-            is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            os = new PrintStream(clientSocket.getOutputStream());
+            int i = 0;
             boolean close = false;
-            int count = 0;
             while (!close) {
-                line = is.readLine();
-                if (line.equalsIgnoreCase("close")) {
-                    count++;
+                Socket clientSocket = echoServer.accept();
+
+                if (clientSocket.isConnected()) {
+                    i++;
+                    connection = true;
+                    System.out.println("Conessione stabilita col Client numero: " + i);
                 }
-                if (count == 3) {
-                    close = true;
-                    os.println("closeClient");
+
+                try {
+                    int count = 0;
+                    is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                    os = new PrintStream(clientSocket.getOutputStream(), true);
+                    while (!close && connection) {
+                        line = is.readLine();
+                        if (line.equalsIgnoreCase("shutdown")) {
+                            close = true;
+
+                        }
+                        if (line.equalsIgnoreCase("close")) {
+                            //close = true;
+                            count++;
+                        }
+                        if (count == 3) {
+                            clientSocket.close();
+                            //break;
+                            connection = false;
+                        }
+                        Thread.sleep(500);
+                        os.println("ECHO " + line);
+                    }
+                    if (close) {
+                        clientSocket.close();
+                        echoServer.close();
+                    }
+                } finally {
+                    if (clientSocket.isClosed()) {
+                        System.out.println("Disconnesione col Client numero: " + i);
+                    }
+                    clientSocket.close();
                 }
-                Thread.sleep(500);
-                os.println("ECHO " + line);
             }
-            if (close) {
-                clientSocket.close();
-                echoServer.close();
-            }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(EchoServer.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            echoServer.close();
+            System.err.println("Il Server e tutti i Client sono stati disconnessi!");
         }
     }
 }
