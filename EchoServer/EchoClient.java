@@ -1,27 +1,35 @@
 import java.net.Socket;
-import java.lang.Exception.*;
-import java.io.*;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.PrintStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
 public class EchoClient{
 	public static void main(String[]args) throws Exception{
 		try{
-			Socket s = new Socket("127.0.0.1",9999);
-			System.out.println("Per disconnetterti, ti basterà scrivere 3 volte la stessa parola");
+			BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+			System.out.print("Inserire l'ip del server: ");
+			String ip = keyboard.readLine();
+			System.out.println();
+			System.out.print("Inserire porta di connessione: ");
+			int port = Integer.parseInt(keyboard.readLine());
+			Socket s = new Socket(ip,port);
 			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			PrintStream out = new PrintStream(s.getOutputStream(),true);
-			BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));		
-			String msg = keyboard.readLine();
+			System.out.println("Per chiudere le connessione, basterà inviare al server le parole: \""+in.readLine()+"\" singolarmente");
+			String line = null;
+			String msg = "";
 			boolean stopped = false;
 			while(!stopped){
+				msg = keyboard.readLine();
 				out.println(msg);
-				String line = in.readLine();
-				if(line.equals("exit"))
+				line = in.readLine();
+				if(line.charAt(line.length()-1) == (char)0)
 					stopped = true;
-				else{
-					System.out.println(line);
-					msg = keyboard.readLine();
-				}
+				System.out.println(line);
 			}
-		}catch(Exception e){
+			System.out.println("Comunicazione Terminata!");
+		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
