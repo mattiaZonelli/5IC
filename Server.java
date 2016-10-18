@@ -38,8 +38,7 @@ public class Server {
                 
                 line = is.readLine();
                 if (line.equals(chiudi)){
-                    os.println("chiudi");
-                    clientSocket.close();
+                    os.println("Chiudi");
                 }
                 os.println("ECHO " + line);
             }
