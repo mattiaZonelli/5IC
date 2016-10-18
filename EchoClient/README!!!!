@@ -1,8 +1,0 @@
-Il programma esegue una connessione client server.
-E' stato sviluppato con l'IDE Netbeans; avviare in ordine il file Echo.java e successivamente LineClient.Java; in caso contrario il LineClient non troverà alcun server a cui collegarsi e restituirà un errore.
-Ho programmato il client in modo che avendo una stringa in input, la mandi al server e che il server risponda con "ECHO" + Stringa.
-Per leggere e scrivere nel socket non ho usato ne PrintStream ne BufferedReader in quanto non riuscivo a farli funzionare; ho utilizzato Scanner e PrintWriter. 
-Il client è stato programmato di modo che se si scrive "quit" la connessione viene chiusa sia da client (stamperà a schermo "Connection Closed), che da server (stamperà su schermo Client disconnected). 
-Il server "Echo.java" è stato modificato, come riportato sul file, in modo che quando riceve la stringa "quit" si chiuda. 
-Avrei voluto gestire meglio le eccezzioni ma non ci sono riuscito.
-Infine per creare questo programma mi sono aiutato,soprattutto a capire, con i vari client creati dal professor Morettin, e con la seguente fonte: http://home.deib.polimi.it/dubois/provafinale/rete.pdf
