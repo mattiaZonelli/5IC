@@ -13,6 +13,7 @@ public class EchoServer {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 		String parola = "";
+                boolean disc = true;
 		int cont = 1;
 		ServerSocket server = new ServerSocket(9999);
 		System.out.println("Attesa connessione client...");
@@ -21,7 +22,7 @@ public class EchoServer {
 		ObjectInputStream input = new ObjectInputStream(soc.getInputStream());
 		ObjectOutputStream Output = new ObjectOutputStream(soc.getOutputStream());
 		Output.writeObject("Connected");
-		while(!soc.isClosed() && cont !=3)
+		while(!soc.isClosed() && cont !=3 && disc)
 		{
 			try
 			{
@@ -37,9 +38,7 @@ public class EchoServer {
 			}
 			catch(java.net.SocketException e)
 			{
-				if(e.getClass().equals("java.net.SocketException"))
-					System.out.println("Client disconnesso!");
-				break;
+				disc = false;
 			}
 		}
 		try

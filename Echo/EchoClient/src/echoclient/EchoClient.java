@@ -14,12 +14,13 @@ public class EchoClient {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Socket soc = new Socket("localhost",9999);
+                boolean disc = true;
 		ObjectOutputStream out = new ObjectOutputStream(soc.getOutputStream());
 		ObjectInputStream inS = new ObjectInputStream(soc.getInputStream());
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String temp = (String) inS.readObject();
 		System.out.println(temp);
-		while(true)
+		while(disc)
 		{
 			try
 			{
@@ -29,7 +30,7 @@ public class EchoClient {
 			}
 			catch(java.net.SocketException e)
 			{
-				break;
+				disc = false;
 			}
 		}
 		System.out.println("Server disconnesso");
