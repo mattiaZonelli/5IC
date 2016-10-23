@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.lang.Thread;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
 public class EchoServer extends Thread{
-	List <ClientListener> clients;
+	ThreadPoolExecutor pooledThreads;
 	ServerSocket echoServer;
 	public EchoServer(int port){
 		try{
@@ -17,16 +20,14 @@ public class EchoServer extends Thread{
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		clients = new ArrayList<>();
+		pooledThreads = new ThreadPoolExecutor(5,8,3,TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(4));
 	}
 	
 	public ServerSocket getEchoServer(){
 		return echoServer;
 	}
+
 	
-	public void removeClientListener(ClientListener c){
-		clients.remove(c);
-	}
 	
 	public void run(){
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
@@ -40,12 +41,15 @@ public class EchoServer extends Thread{
 		while(true){
 			Socket clientSocket = null;
 			try {
+				/*System.out.println("PoolSize: "+pooledThreads.getPoolSize()						Debug per comprendere il funzionamento di ThreadPoolExecutor
+									+"\nCorePoolSize: "+pooledThreads.getCorePoolSize()
+									+"\nMaximumPoolSize: "+pooledThreads.getMaximumPoolSize()
+									+"\nCodaTask: "+pooledThreads.getQueue().toString());*/
 				System.out.println("In attesa di connessioni");
 				clientSocket = echoServer.accept();
 				System.out.println("Connesso "+clientSocket.getInetAddress());
-				ClientListener singleClient = new ClientListener(clientSocket,exitString,this);
-				clients.add(singleClient);
-				singleClient.start();
+				ClientListener singleClient = new ClientListener(clientSocket,exitString);
+				pooledThreads.execute(singleClient);
 			}catch(IOException e){
 				e.printStackTrace();
 			}

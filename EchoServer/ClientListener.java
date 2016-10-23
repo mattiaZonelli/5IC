@@ -3,25 +3,20 @@ import java.io.PrintStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.io.IOException;
-public class ClientListener extends Thread{
+public class ClientListener implements Runnable{
 	BufferedReader is;	//Gli stream non li inizializzo nel costruttore per usufruire dell'autoclosable
     PrintStream os;
     Socket s;
-    EchoServer echoServer;
     String [] wordSequence;
     String exitString;
     boolean stopped;
-    public ClientListener(Socket s,String exitString,EchoServer echoServer){
+    public ClientListener(Socket s,String exitString){
 		this.s = s;
-		this.echoServer = echoServer;
 		this.exitString = exitString;
 		wordSequence = exitString.split(" ");
 		stopped = false;
 	}
 	
-	public EchoServer getEchoServer(){
-		return echoServer;
-	}
 	
 	public Socket getSocket(){
 		return s;
@@ -62,7 +57,6 @@ public class ClientListener extends Thread{
 					 }
 					 os.println("ECHO "+line);
 				}
-			getEchoServer().removeClientListener(this);
 		}catch(IOException e){
 			e.printStackTrace();
 		}
