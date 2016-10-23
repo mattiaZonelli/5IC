@@ -23,17 +23,17 @@ Questa classe permette di tenere in riserva un determinato numero di thread, da 
 ```
 new ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue)
 ```
-*corePoolSize è il numero di thread che verranno tenuti in riserva (anche se in idle)
-*maximumPoolSize è il numero di thread massimo che potranno essere utilizzati
-*keepAliveTime è il tempo che viene utilizzato per la terminazione dei thread se la grandezza della poolSize è maggiore di corePoolSize
-*TimeUnit è l'unità utilizzata per keepAliveTime
-*workQueue sono i tasks in attesa di un thread
+* corePoolSize è il numero di thread che verranno tenuti in riserva (anche se in idle)
+* maximumPoolSize è il numero di thread massimo che potranno essere utilizzati
+* keepAliveTime è il tempo che viene utilizzato per la terminazione dei thread se la grandezza della poolSize è maggiore di corePoolSize
+* TimeUnit è l'unità utilizzata per keepAliveTime
+* workQueue sono i tasks in attesa di un thread
 
 Inizialmente la PoolSize è a 0.
-Se  PoolSize < corePoolSize, appena arriva un task viene creato un thread.
-Se  PoolSize == corePoolSize, i task vengono messi in attesa in workQueue.
-Se  workQueue è piena, verranno creati thread fino al raggiungimento di maximumPoolSize
+* Se  PoolSize < corePoolSize, appena arriva un task viene creato un thread.
+* Se  PoolSize == corePoolSize, i task vengono messi in attesa in workQueue.
+* Se  workQueue è piena, verranno creati thread fino al raggiungimento di maximumPoolSize
 
-Se PoolSize > corePoolSize, verranno terminati i thread in idle che sono in più (dopo che avranno aspettato keepAliveTime) affinché la poolSize ritorni minore di corePoolSize
+*Se PoolSize > corePoolSize, verranno terminati i thread in idle che sono in più (dopo che avranno aspettato keepAliveTime) affinché la poolSize ritorni minore di corePoolSize
 
 
