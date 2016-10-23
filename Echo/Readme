@@ -1,7 +1,0 @@
-Si illustrano di seguito le modalità di sviluppo per client e server del progetto "Echo"
-
-CLIENT: Viene mostrata un'interfaccia per settare i campi ip e porta, una volta terminata o accettate le impostazioni di default (IP:localhost e PORT:9090) si digita start e parte la sessione.
-Una volta ripetute 3 parole in sequenza, viene terminata la connessione e proposta un'altra sessione. A seconda della risposta la connessione lato client termina o meno
-
-SERVER: Il server si occupa di accettare una richiesta di connessione alla volta, rispondere con la stessa stringa e una volta superate le 3 ripetizioni della stessa parola, comunicare al client la fine della sessione aggiungendo alla stringa da ripetere il carattere NULL (ASCII 0x0000) non digitabile da tastiera.
-Una volta terminata la connessione è pronto per riceverne di nuove
