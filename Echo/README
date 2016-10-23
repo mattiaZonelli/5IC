@@ -1,0 +1,2 @@
+Si propongono le seguenti idee di sviluppo:
+Il client si connette con il server e invia la richiesta di echo, il server risponde con la stessa stringa e se viene ripetuta la parola per tre volte di fila si invia un marcatore che obbliga il client a terminare la connessione. Il server gestisce una connessione per volta.
