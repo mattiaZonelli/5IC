@@ -33,7 +33,6 @@ Inizialmente la PoolSize è a 0.
 * Se  PoolSize < corePoolSize, appena arriva un task viene creato un thread.
 * Se  PoolSize == corePoolSize, i task vengono messi in attesa in workQueue.
 * Se  workQueue è piena, verranno creati thread fino al raggiungimento di maximumPoolSize
-
-*Se PoolSize > corePoolSize, verranno terminati i thread in idle che sono in più (dopo che avranno aspettato keepAliveTime) affinché la poolSize ritorni minore di corePoolSize
+* Se PoolSize > corePoolSize, verranno terminati i thread in idle che sono in più (dopo che avranno aspettato keepAliveTime) affinché la poolSize ritorni minore di corePoolSize
 
 
