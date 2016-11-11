@@ -7,11 +7,9 @@ import java.io.*;
 
 public class Client {
 	 Socket conn;
-	 InputStreamReader in;
 	 BufferedReader ingresso;
 	 OutputStream out;
 	 PrintStream uscita;
-	 InputStreamReader tast;
 	 BufferedReader tastiera;
 	 boolean connessione;
 	 int cont; 
