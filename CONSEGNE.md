@@ -26,31 +26,6 @@ in locale.
 # Chat: deadline 8 dicembre
 
 Ecco quanto richiesto. 
-- Si scrivano almeno i sorgenti per le seguenti classi.
-```
-Server.java
-Client.java
-```
-in modo da realizzare una **chat** (anche una chatroom): l'utente mediante un client dotato di interfaccia grafica (GUI) da realizzarsi con Java FX (swing) interagisce con altri utenti, gli utenti si iscrivono ad e della loro iscrizione si tiene traccia
-in un DB SQLite (o MariaDB). 
-- Si utilizzi il protocollo UDP.
-- Il server gestisce le richieste in modo concorrente.
-- Va scritto il file 
-```
-README.md
-```
-con la descrizione informale del progetto.
-- Il tutto va messo in una cartella Chat.
-- Non consegnare file .class o xml di progetto NetBeans. In caso lavorare con il file
-```
-.gitignore
-```
-in locale.
-- Qunato sopra è richiesto per raggiungere una valutazione di sufficienza abbondante. Ogni elemento ulteriore, ad iniziativa dello studente, sarà preso in considerazioni per le valutazioni eccellenti in sede di collquio orale.
-
-# Chat: deadline 10 dicembre
-
-Ecco quanto richiesto. 
 - Si scrivano i sorgenti almeno per le seguenti classi.
 ```
 Server.java
