@@ -5,10 +5,15 @@
  */
 package com.robot.swing;
 
+import com.birosoft.liquid.LiquidLookAndFeel;
 import com.robot.client.Client;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
@@ -26,11 +31,16 @@ public class ClientGUI extends javax.swing.JFrame {
 
     public ClientGUI(Client client) {
         super("Pandora");
-       /* try {
-            UIManager.setLookAndFeel("napkin.NapkinLookAndFeel");
+        try {
+          UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
+          
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(ClientGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+             try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
+                Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
         StyleContext sc = StyleContext.getDefaultStyleContext();
 
         this.client = client;

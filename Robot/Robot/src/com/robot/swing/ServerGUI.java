@@ -7,9 +7,13 @@ package com.robot.swing;
 
 import com.robot.server.Server;
 import com.robot.server.ServerConnectionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -22,11 +26,16 @@ public class ServerGUI extends javax.swing.JFrame {
      */
     public ServerGUI() {
         super("Server");
-        /*try {
-            UIManager.setLookAndFeel("napkin.NapkinLookAndFeel");
+         try {
+           UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(ClientGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+             try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
+                Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+        
         initComponents();
         setVisible(true);
     }
@@ -140,15 +149,15 @@ public class ServerGUI extends javax.swing.JFrame {
     public JTextArea getLogArea() {
         return logArea;
     }
-   
-    public static void alert(){
-          Thread t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                  JOptionPane.showMessageDialog(null, "New data inserted in database. Insert comments and check for data integrity loss", "Data insertion", JOptionPane.INFORMATION_MESSAGE);
-                }
-            });
-            t.start();
+
+    public static void alert() {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                JOptionPane.showMessageDialog(null, "New data inserted in database. Insert comments and check for data integrity loss", "Data insertion", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        t.start();
     }
 
 
