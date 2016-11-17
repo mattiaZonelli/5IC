@@ -1,7 +1,7 @@
 ﻿# Project: Robot
 
 Consegna Prevista 
-- Realizzatre in **robot**: l'utente mediante il client immagina di dialogare con un ipotetico interlocutore, il comportamento di tale interlocutore è descritto nel protocollo. 
+- Realizzare **Robot**: l'utente mediante il client immagina di dialogare con un ipotetico interlocutore, il comportamento di tale interlocutore è descritto nel protocollo. 
 - Il server gestisce le richieste in modo concorrente.
 
 Rispettando la consegna prevista dal prof. ho realizzato le seguenti classi
@@ -24,9 +24,9 @@ richieste in modo concorrente.
 Ulteriori iniziative sono state adottate dallo studento ovvero creazione della grafica in JavaFX e in certi casi
 si salva le informazioni temporaneamente.
 
--Il protocollo preve un dialogo tra ipotetica intelligenza artificiale, il server manda affermazioni o domande
+- Il protocollo preve un dialogo tra ipotetica intelligenza artificiale, il server manda affermazioni o domande
 per dialogare con l'utente, è previsto pure una limitata pare dove l'utente può fare limitate domande.
--Il protocollo contiene più o meno 20 stati (Alcuni stati principali e il resto sono sotto stati).
+- Il protocollo contiene più o meno 20 stati (Alcuni stati principali e il resto sono sotto stati).
 
 Dentro alla cartella a questa cartella sono previsto ulteriori cartelle:
 ```
@@ -35,8 +35,8 @@ doc> contiene la documentazione JavaDoc e diagramma delle classi e diagrammi per
 dist> contiene file eseguibile se si apre **Robotgraphics** si può utilizzare il programma senza compilarlo.
 
 ```
--Non sono stati inseriti alcuni file **.class** ed **.xml** di progetto NetBeans.
+- Non sono stati inseriti alcuni file **.class** ed **.xml** di progetto NetBeans.
 
--Il progetto è stato realizzato con l'IDE **NetBeans IDE 8.1** e Java versione 8.
+- Il progetto è stato realizzato con l'IDE **NetBeans IDE 8.1** e Java versione 8.
 
 **Swapnil Paul, 17.11.2016**
