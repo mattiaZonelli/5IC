@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="327.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="robotgraphics.FXMLServerController">
+   <children>
+      <Button fx:id="startServerBtn" layoutX="294.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleStartServerBtn" prefHeight="29.0" prefWidth="87.0" text="Start Server">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="ipDisplay" editable="false" layoutX="48.0" layoutY="41.0" prefHeight="29.0" prefWidth="218.0" promptText="127.0.0.1:9090" text="127.0.0.1:9090">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="serverDisplay" editable="false" layoutX="36.0" layoutY="97.0" prefHeight="200.0" prefWidth="456.0" />
+      <Button fx:id="startClientBtn" layoutX="414.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleStartClientBtn" prefHeight="29.0" prefWidth="87.0" text="Start Client">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
