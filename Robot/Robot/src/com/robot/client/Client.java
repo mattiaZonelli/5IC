@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.client;
 
+import com.robot.protocol.Protocol;
 import com.robot.swing.ClientGUI;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
@@ -27,31 +23,80 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 /**
+ * Il client che interpreta il protocollo e permette all'utente di comunicare
+ * con il server<br>
+ * Al momento della connessione viene fornito un token per il riconoscimento e
+ * poi viene avviata la vera e propria comunicazione.
  *
- * @author Nicola
+ * @author Nicola Pasqualetto
+ * @version 1.1
  */
 public final class Client {
 
+    /**
+     * L'endpoint di comunicaizione.
+     */
     private static Socket socket;
 
+    /**
+     * L'ip del client.
+     */
     private final String IP;
+    /**
+     * La porta di comunicazione.
+     */
 
     private final int PORT;
+    /**
+     * Il file dove è memorizzato il token.
+     */
 
     private final File TOKEN_FILE;
 
+    /**
+     * Interfaccia grafica.
+     */
     private static ClientGUI clientGUI;
 
+    /**
+     * Il messaggio come fornito dall'endpoint.
+     */
     private String raw;
 
+    /**
+     * Il messaggio interpretato correttamente.
+     */
     private String line;
 
+    /**
+     * Indica se la connessione è terminata o meno.
+     */
     private boolean ended;
 
+    /**
+     * Stream per l'invio dei dati.
+     *
+     * @see java.io.PrintStream
+     */
     private PrintStream output;
 
+    /**
+     * Stream in input per la ricezione dei dati.
+     *
+     * @see java.io.BufferedReader
+     */
     private BufferedReader input;
 
+    /**
+     * Costruttore<br>
+     * Legge dal file il token, istanzia l'interfaccia grafica e gli stream I/O;
+     * predispone la chiusura della finestra senza crash del server e avvia la
+     * comunicazione.
+     *
+     * @param IP L'IP al quale ci si deve connettere.
+     * @param PORT La porta di connessione
+     * @see Socket
+     */
     public Client(String IP, int PORT) {
         ended = false;
         this.IP = IP;
@@ -78,17 +123,29 @@ public final class Client {
 
     }
 
+    /**
+     * Consente la chiusura dell'istanza di comunicazione del server con questo
+     * particolare client, tramite l'invio del carattere 4 ASCII utilizzato dal
+     * protocollo come END OF TRANSMISSION.
+     *
+     * @see com.robot.protocol.Protocol
+     */
     public void handleClosing() {
         clientGUI.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                output.println("END" + (char) 4);
+                output.println("END" + Protocol.END_OF_TRANSMISSION);
                 System.exit(0);
 
             }
         });
     }
 
+    /**
+     * Metodo main.
+     *
+     * @param args Non usato
+     */
     public static void main(String[] args) {
         String beginning = "";
         do {
@@ -123,8 +180,18 @@ public final class Client {
         }
         Client client = new Client(ipAndPort[0], Integer.parseInt(ipAndPort[1]));
     }
-//problema
 
+    /**
+     * Permette la visualizzazione sulla finestra della GUI delle stringhe
+     * formattate tramite uno StyledDocument<br>
+     * Vengono definiti per l'utente un allineamento a destra, caratteri normali
+     * e rossi, mentre per la ricezione dal server allineamento a sinistra,
+     * grassetto e colore nero.
+     *
+     * @see javax.swing.text.StyledDocument
+     * @param str La stringa da scrivere a video.
+     * @param rightToLeft Indica se la stringa è ricevuta o inviata.
+     */
     public static void display(String str, boolean rightToLeft) {
         StyledDocument doc = clientGUI.getDocument();
         if (rightToLeft) {
@@ -132,16 +199,15 @@ public final class Client {
             SimpleAttributeSet answer = new SimpleAttributeSet();
             StyleConstants.setAlignment(answer, StyleConstants.ALIGN_RIGHT);
             StyleConstants.setForeground(answer, Color.red);
-            doc.setParagraphAttributes(doc.getEndPosition().getOffset(), doc.getLength()-1, answer, false);
-            doc.setCharacterAttributes(doc.getEndPosition().getOffset(), doc.getLength()-1, answer, false);
+            StyleConstants.setBold(answer, false);
+            doc.setParagraphAttributes(doc.getLength(), str.length(), answer, false);
         } else {
             str = "[PANDORA]: " + str;
             SimpleAttributeSet question = new SimpleAttributeSet();
             StyleConstants.setBold(question, true);
             StyleConstants.setForeground(question, Color.BLACK);
             StyleConstants.setAlignment(question, StyleConstants.ALIGN_LEFT);
-            doc.setCharacterAttributes(doc.getEndPosition().getOffset(), doc.getLength()-1, question, false);
-            doc.setParagraphAttributes(doc.getEndPosition().getOffset(), doc.getLength()-1, question, false);
+            doc.setParagraphAttributes(doc.getLength(), str.length(), question, false);
         }
         try {
             doc.insertString(doc.getLength(), "\n" + str + "\n", null);
@@ -150,6 +216,13 @@ public final class Client {
         }
     }
 
+    /**
+     * Metodo che invia un token memorizzato in un apposito file al server per
+     * il riconoscimento dell'utente.
+     *
+     * @param input stream di lettura.
+     * @param output stream di scrittura.
+     */
     private void sendToken(BufferedReader input, PrintStream output) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(TOKEN_FILE));
@@ -185,6 +258,11 @@ public final class Client {
         }
     }
 
+    /**
+     * Permette la comunicazione tra client e server fino alla ricezione di un
+     * END_OF_TRANSMISSION o alla chiusura della finestra GUI.
+     */
+
     private void talk() {
 
         // solo da riga di comando
@@ -201,7 +279,7 @@ public final class Client {
             line = interpreteCode(raw);
             System.out.println(line);
             display(line, false);
-            if (raw.contains("" + (char) 4)) {
+            if (raw.contains("" + Protocol.END_OF_TRANSMISSION)) {
                 ended = true;
             }
 
@@ -215,10 +293,13 @@ public final class Client {
         System.out.println("Uscito");
     }
 
+    /**
+     * Permette di inviare una riga di testo al server.
+     */
     public void sendText() {
-        if (raw.contains("" + (char) 4) || !clientGUI.isDisplayable()) {
+        if (raw.contains("" + Protocol.END_OF_TRANSMISSION) || !clientGUI.isDisplayable()) {
             ended = true;
-        } else if (!line.contains("" + (char) 0) && !line.contains("" + (char) 4)) {
+        } else if (!line.contains("" + Protocol.NO_WAIT_FOR_ANSWER) && !line.contains("" + Protocol.END_OF_TRANSMISSION)) {
             String in = clientGUI.getInputField().getText();
             output.println(in);
             display(in, true);
@@ -227,6 +308,12 @@ public final class Client {
         }
     }
 
+    /**
+     * Interpreta la riga appena ricevuta e la decodifica.
+     *
+     * @param message Il messaggio ricevuto
+     * @return message
+     */
     public static synchronized String interpreteCode(String message) {
         if (message == null) {
             try {
@@ -235,7 +322,7 @@ public final class Client {
             }
             display("*******************************DISCONNECTED********************************", false);
         }
-        message = message.replaceAll("" + (char) 3, "\n");
-        return message.replaceAll("" + (char) 4, "");
+        message = message.replaceAll("" + Protocol.NEW_LINE, "\n");
+        return message.replaceAll("" + Protocol.END_OF_TRANSMISSION, "");
     }
 }

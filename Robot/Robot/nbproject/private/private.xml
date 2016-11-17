@@ -3,16 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/swing/ClientGUI.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/utils/database/DBConnector.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/swing/ServerGUI.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/database/DBWriter.java</file>
             <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/protocol/Protocol.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/database/Field.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/database/Tuple.java</file>
             <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/server/Server.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/utils/Robot.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/utils/database/DBReader.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/server/ConcurrentTasksTrigger.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/client/Client.java</file>
-            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/utils/database/DBWriter.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/Robot.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/database/DBReader.java</file>
+            <file>file:/F:/5IC/TPSIT/Robot/Robot/src/com/robot/utils/database/DBConnector.java</file>
         </group>
     </open-files>
 </project-private>

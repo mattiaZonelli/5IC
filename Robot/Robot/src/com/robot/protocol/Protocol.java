@@ -1,41 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.protocol;
 
 import com.robot.swing.ServerGUI;
-import com.utils.Robot;
-import com.utils.database.DBConnector;
-import com.utils.database.Field;
+import com.robot.utils.Robot;
+import com.robot.utils.database.DBConnector;
+import com.robot.utils.database.Field;
 import java.util.Calendar;
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
 
 /**
+ * La classe rappresentante il protocollo e contentente tutti gli stati e i
+ * sottostati.
  *
- * @author Nicola
+ * @author Nicola Pasqualetto
+ * @version 1.1
  */
 public class Protocol {
 
+    /**
+     * Lo stato corrente.
+     */
     private int currentState;
 
+    /**
+     * Fine della trasmissione.
+     */
+    public static final char END_OF_TRANSMISSION = (char) 4;
+
+    /**
+     * Nuova riga di testo.
+     */
+    public static final char NEW_LINE = (char) 3;
+
+    /**
+     * Utitlizzato per costringere o meno il client a rispondere.
+     */
+    public static final char NO_WAIT_FOR_ANSWER = (char) 0;
+
+    /**
+     * L'array contenente i saluti.
+     */
     private final String[] greetings = {"Hello", "Hi", "Good morning", "Good afternoon", "Good evening", "Goodnight"};
 
-    private final String[] farewells;
+    /**
+     * L'array contentente gli addii.
+     */
+    private final String[] farewells = new String[]{"Goodbye", "Have a nice day!", "See ya!"};
 
+    /**
+     * L'istanza dell'oggetto Robot.
+     *
+     * @see com.robot.utils.Robot
+     */
     private final Robot robot;
 
+    /**
+     * Indica se lo stato corrente deve attendere una risposta o meno.
+     */
     private boolean answerable;
 
+    /**
+     * Indica la scelta corrente dell'utente.
+     */
     private String currentChoice;
 
-    private boolean flag;
-
+    /**
+     * Costruttore.
+     *
+     * @param robot Il robot contenente i dati dell'utente.
+     */
     public Protocol(Robot robot) {
-        flag = false;
-        this.farewells = new String[]{"Goodbye", "Have a nice day!", "See ya!"};
         answerable = true;
         this.robot = robot;
         if (robot.isAlreadyMemorized()) {
@@ -46,6 +79,12 @@ public class Protocol {
 
     }
 
+    /**
+     * Prepara la stringa di invio in base allo stato corrente e predispone o
+     * meno la risposta.
+     *
+     * @return message
+     */
     public String sendMessage() {
         String message = "";
         switch (currentState) {
@@ -134,8 +173,13 @@ public class Protocol {
         return message;
     }
 
+    /**
+     * Pone la macchina a stati finiti allo stato "Spegnimento".
+     *
+     * @return message
+     */
     private String endRobot() {
-        String farewell = farewells[(int) (Math.random() * 3)] + (char) 4;//char 4 è END OF TRANSMISSION
+        String farewell = farewells[(int) (Math.random() * 3)] + END_OF_TRANSMISSION;
         String message;
         if (robot.isAlreadyMemorized()) {
             message = "I've got to go know. ";
@@ -151,6 +195,12 @@ public class Protocol {
         return message;
     }
 
+    /**
+     * Interpreta il messaggio ricevuto e avanza di stato.
+     *
+     * @param message Il messaggio del client
+     * @return il messaggio del client
+     */
     public String interpreteMessage(String message) {
         System.out.println("STATO " + currentState + "\n");
         switch (currentState) {
@@ -232,18 +282,16 @@ public class Protocol {
                         robot.writeData(robot.getTopicName(), f, "ID=" + robot.getId());
                     }
                     if (robot.getPreferences().isEmpty()) {
-                         int random = (int) (Math.random() * 10); // numero per raccontare la storia
+                        int random = (int) (Math.random() * 10);
                         if (random == 0) { //10% racconto storia
                             currentState = StateHolder.ABOUT_ME;
-                        } else if (random == 1 || random == 2) {
-                            currentState=StateHolder.WANNA_LEARN;
-                        } else if ((int) (Math.random() * 2) == 0) {
+                        } else if (random == 1 || random == 2) { //20% richiesta stato "Learn"
+                            currentState = StateHolder.WANNA_LEARN;
+                        } else if ((int) (Math.random() * 2) == 0) { //35% richiesta di continuare
                             currentState = StateHolder.KNOWING_OFFER;
-                            flag = true;
                         } else {
-                            currentState = StateHolder.GOODBYE;
+                            currentState = StateHolder.GOODBYE; // 35% richiesta di uscire
                         }
-                        currentState = StateHolder.WANNA_LEARN;
                     } else {
                         currentState = StateHolder.AGAIN;
                     }
@@ -254,6 +302,12 @@ public class Protocol {
         return message;
     }
 
+    /**
+     * Inteprete degli stati PLACE_OF_LIVING e STATE_OF_LIVING
+     *
+     * @param s stringa ricevuta
+     * @return la stirnga estrapolata
+     */
     private static String getPlaceOfLiving(String s) {
         String out = "";
         for (int i = 0; i < s.length(); i++) {
@@ -267,6 +321,12 @@ public class Protocol {
         return out;
     }
 
+    /**
+     * Ottiene l'età da una stringa.
+     *
+     * @param s L'età in stringa
+     * @return età
+     */
     private static int getAge(String s) {
         String out = "";
         for (int i = 0; i < s.length(); i++) {
@@ -277,6 +337,11 @@ public class Protocol {
         return Integer.parseInt(out);
     }
 
+    /**
+     * Propone degli argomenti.
+     *
+     * @return messaggio
+     */
     private String knowingEachOther() {
         String message = "";
         currentChoice = robot.randomTopics();
@@ -290,6 +355,11 @@ public class Protocol {
         return message;
     }
 
+    /**
+     * Saluta in base all'orario.
+     *
+     * @return saluto
+     */
     private String greet() {
         int randomGreeting = (int) ((Math.random() * 1000) % 3);
         if (randomGreeting == 2) {
@@ -307,6 +377,11 @@ public class Protocol {
 
     }
 
+    /**
+     * indica se il protocollo è rispondibile e avanza di stato.
+     *
+     * @return condizione
+     */
     public boolean isAnswerable() {
         if ((!answerable) && (currentState != StateHolder.TALK)) {
             currentState++;
@@ -318,6 +393,12 @@ public class Protocol {
         return currentState;
     }
 
+    /**
+     * Intepreta il messaggio se positivo o meno.
+     *
+     * @param message messaggio
+     * @return se affermativo o meno
+     */
     public static boolean isPositive(String message) {
         message = message.toLowerCase();
         return ((message.contains("yes")

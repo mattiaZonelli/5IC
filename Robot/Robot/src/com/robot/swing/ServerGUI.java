@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.swing;
 
 import com.robot.server.Server;
@@ -16,8 +11,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author Nicola
+ * @author Nicola Pasqualetto
+ * @version 1.1
  */
 public class ServerGUI extends javax.swing.JFrame {
 
@@ -26,16 +21,13 @@ public class ServerGUI extends javax.swing.JFrame {
      */
     public ServerGUI() {
         super("Server");
-         try {
-           UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-             try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
-                Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
+            Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
         }
-        
+
         initComponents();
         setVisible(true);
     }

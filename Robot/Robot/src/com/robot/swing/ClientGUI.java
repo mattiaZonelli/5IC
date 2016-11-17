@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.robot.swing;
 
-import com.birosoft.liquid.LiquidLookAndFeel;
 import com.robot.client.Client;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -19,7 +14,8 @@ import javax.swing.text.StyledDocument;
 
 /**
  *
- * @author nicola.pasqualetto
+ * @author Nicola Pasqualetto
+ * @version 1.1
  */
 public class ClientGUI extends javax.swing.JFrame {
 
@@ -32,15 +28,11 @@ public class ClientGUI extends javax.swing.JFrame {
     public ClientGUI(Client client) {
         super("Pandora");
         try {
-          UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
-          
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-             try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
-                Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
-            }
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex1) {
+            Logger.getLogger(ServerGUI.class.getName()).log(Level.SEVERE, null, ex1);
         }
+
         StyleContext sc = StyleContext.getDefaultStyleContext();
 
         this.client = client;
@@ -65,11 +57,12 @@ public class ClientGUI extends javax.swing.JFrame {
         outputArea = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        inputField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputFieldActionPerformed(evt);
+        inputField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputFieldKeyPressed(evt);
             }
         });
 
@@ -121,18 +114,16 @@ public class ClientGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
-        JTextField txt = (JTextField) (evt.getSource());
-        if (txt.getText().contains(System.getProperty("line.separator"))) {
-            client.sendText();
-        }
-    }//GEN-LAST:event_inputFieldActionPerformed
-
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
         JButton jb = (JButton) (evt.getSource());
         client.sendText();
     }//GEN-LAST:event_sendButtonActionPerformed
-  
+
+    private void inputFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputFieldKeyPressed
+        if (!"".equals(inputField.getText().trim()) && evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            client.sendText();
+        }
+    }//GEN-LAST:event_inputFieldKeyPressed
 
     public JTextPane getOutputArea() {
         return outputArea;
