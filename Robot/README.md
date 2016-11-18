@@ -1,3 +1,5 @@
+IMPORTANTE: Guardare il progetto SimpleDialogue (IntelliJ project)
+
 Informazioni informali sul progetto
 
 -Autore: Lucentini Riccardo
