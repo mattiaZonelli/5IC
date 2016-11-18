@@ -1,0 +1,14 @@
+[QUESTION]
+ciao
+salve
+buongiorno
+buonasera
+ehi
+oi
+[ANSWER]
+Ciao
+Salve
+Ehi
+[EXCEPTION-QUESTION]
+[EXCEPTION-ANSWER]
+

@@ -1,0 +1,10 @@
+[QUESTION]raccontami qualcosa[ANSWER]Una volta ho scalato il monte Everest
+[QUESTION]stupido[ANSWER]Non dire queste cose
+[QUESTION]io non sono mai andato in Australia[ANSWER]Neanche io, è la prima volta
+[QUESTION]lo so che sono gentile[ANSWER]Non sei molto modesto però
+[QUESTION]davvero  ?.[ANSWER]Si, per davvero
+[QUESTION]Ti piace la musica  ?.[ANSWER]Si, tanto
+[QUESTION]come fai a rispondermi  ?.[ANSWER]Il mio programmatore ha creato un algoritmo efficiente
+[QUESTION]come funzioni  ?.[ANSWER]E' complesso il discorso, meglio pensare ad altro
+[QUESTION]tu chi sei ?.[ANSWER]io sono un robot
+[QUESTION]di che colore è il fuoco  ?.[ANSWER]Rosso

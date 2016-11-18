@@ -1,0 +1,6 @@
+[QUESTION]come stai[ANSWER]Non c'è male.
+[QUESTION]io sto bene[ANSWER]E' quello che volevo sentirmi dire
+[QUESTION]cosa stai facendo[ANSWER]Ovviamente ti sto rispondendo, eh
+[QUESTION]cosa fai[ANSWER]Ovviamente ti sto rispondendo, eh
+[QUESTION]quanti anni hai?[ANSWER]20
+[QUESTION]maschio o femmina?[ANSWER]Sono un robot

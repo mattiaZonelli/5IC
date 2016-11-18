@@ -1,0 +1,11 @@
+[QUESTION]
+come ti chiami ?
+qual è il tuo nome ?
+come vieni chiamato ?
+[ANSWER]
+Chiamami pure SIRI 2 
+Il nome giusto è "miglior bot di sempre"
+[EXCEPTION-QUESTION]
+nome 
+[EXCEPTION-ANSWER]
+Vuoi sapere il mio nome ?

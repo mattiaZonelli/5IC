@@ -1,0 +1,236 @@
+{
+  "thanks": {
+    "path": "text/thanks.txt",
+    "question": [
+      "grazie",
+      "prego"
+    ],
+    "answer": [
+      "Prego",
+      "Sei gentile"
+    ],
+    "exception-question": [],
+    "exception-answer": [],
+    "state": "0",
+    "type": "biettivo"
+  },
+  "hour": {
+    "path": "text/hour.txt",
+    "question": [
+      "che ora è ?",
+      "dimmi che ora è adesso ?",
+      "orario",
+      "ora adesso",
+      "mostrami l\u0027ora",
+      "dimmi l\u0027ora"
+    ],
+    "answer": [
+      "Sono le"
+    ],
+    "exception-question": [
+      "ora"
+    ],
+    "exception-answer": [
+      "Vuoi sapere l\u0027ora ?"
+    ],
+    "state": "2",
+    "type": "suriettivo"
+  },
+  "gender": {
+    "path": "text/gender.txt",
+    "question": [
+      "maschio o femmina ?",
+      "di che sesso sei ?",
+      "sei maschio ?",
+      "sei femmina ?",
+      "sei maschio o femmina ?",
+      "il tuo sesso",
+      "uomo o donna ?",
+      "sei un robot ?",
+      "sei un computer ?",
+      "chi sei ?",
+      "cosa sei ?"
+    ],
+    "answer": [
+      "Sono un robot progettato per risponderti. Sono pure simpatico",
+      "Ogni volta a farmi queste domande, ho capito che sono strano",
+      "Secondo te ? Un robot, ovvio"
+    ],
+    "exception-question": [
+      "maschio",
+      "femmina",
+      "robo",
+      "computer"
+    ],
+    "exception-answer": [
+      "Vuoi sapere chi e cosa sono ?"
+    ],
+    "state": "0",
+    "type": "suriettivo"
+  },
+  "year": {
+    "path": "text/year.txt",
+    "question": [
+      "che anno è ?",
+      "dimmi che anno è ?",
+      "anno",
+      "mostrami l\u0027anno",
+      "dimmi l\u0027anno",
+      "che giorno è ?",
+      "giorno",
+      "dimmi che giorno è ",
+      "dimmi il giorno",
+      "mostrami il giorno",
+      "mese",
+      "che mese è ?",
+      "dimmi che mese è ",
+      "dimmi il mese",
+      "mostrami il mese"
+    ],
+    "answer": [
+      "Siamo il"
+    ],
+    "exception-question": [
+      "data"
+    ],
+    "exception-answer": [
+      "Vuoi sapere la data ?"
+    ],
+    "state": "3",
+    "type": "suriettivo"
+  },
+  "autoLearn": {
+    "path": "text/autoLearn.txt",
+    "question": [
+      "raccontami qualcosa",
+      "stupido",
+      "io non sono mai andato in Australia",
+      "lo so che sono gentile",
+      "davvero  ?.",
+      "Ti piace la musica  ?.",
+      "come fai a rispondermi  ?.",
+      "come funzioni  ?.",
+      "tu chi sei ?.",
+      "di che colore è il fuoco  ?."
+    ],
+    "answer": [
+      "Una volta ho scalato il monte Everest",
+      "Non dire queste cose",
+      "Neanche io, è la prima volta",
+      "Non sei molto modesto però",
+      "Si, per davvero",
+      "Si, tanto",
+      "Il mio programmatore ha creato un algoritmo efficiente",
+      "E\u0027 complesso il discorso, meglio pensare ad altro",
+      "io sono un robot",
+      "Rosso"
+    ],
+    "exception-question": [],
+    "exception-answer": [],
+    "state": "0",
+    "type": "biettivo"
+  },
+  "name": {
+    "path": "text/name.txt",
+    "question": [
+      "come ti chiami ?",
+      "qual è il tuo nome ?",
+      "come vieni chiamato ?"
+    ],
+    "answer": [
+      "Chiamami pure SIRI 2 ",
+      "Il nome giusto è \"miglior bot di sempre\""
+    ],
+    "exception-question": [
+      "nome "
+    ],
+    "exception-answer": [
+      "Vuoi sapere il mio nome ?"
+    ],
+    "state": "0",
+    "type": "suriettivo"
+  },
+  "howfeel": {
+    "path": "text/feel.txt",
+    "question": [
+      "come ti senti ?",
+      "come stai ?",
+      "come ti senti oggi ?",
+      "come stai oggi ?",
+      "tutto bene ?",
+      "come va ?"
+    ],
+    "answer": [
+      "Si dai non c\u0027è male",
+      "Potrebbe andare meglio",
+      "Non potrebbe andare meglio",
+      "La settimana prossima vado in Australia quindi direi alla grande"
+    ],
+    "exception-question": [
+      "senti",
+      "va"
+    ],
+    "exception-answer": [
+      "Vuoi sapere come sto ?"
+    ],
+    "state": "0",
+    "type": "suriettivo"
+  },
+  "noAnswer": {
+    "path": "text/noAnswer.txt",
+    "question": [],
+    "answer": [
+      "Scusa ma non ho capito",
+      "Sono sicuro che parli la mia lingua ma non capisco",
+      "Non so di chi sia la colpa ma non capisco",
+      "Non sono molto colto"
+    ],
+    "exception-question": [],
+    "exception-answer": [],
+    "state": "4",
+    "type": "suriettivo"
+  },
+  "regards": {
+    "path": "text/regards.txt",
+    "question": [
+      "ciao",
+      "salve",
+      "buongiorno",
+      "buonasera",
+      "ehi",
+      "oi"
+    ],
+    "answer": [
+      "Ciao",
+      "Salve",
+      "Ehi"
+    ],
+    "exception-question": [],
+    "exception-answer": [],
+    "state": "1",
+    "type": "suriettivo"
+  },
+  "generic": {
+    "path": "text/generic.txt",
+    "question": [
+      "come stai",
+      "io sto bene",
+      "cosa stai facendo",
+      "cosa fai",
+      "quanti anni hai?",
+      "maschio o femmina?"
+    ],
+    "answer": [
+      "Non c\u0027è male.",
+      "E\u0027 quello che volevo sentirmi dire",
+      "Ovviamente ti sto rispondendo, eh",
+      "Ovviamente ti sto rispondendo, eh",
+      "20",
+      "Sono un robot"
+    ],
+    "exception-question": [],
+    "exception-answer": [],
+    "state": "0",
+    "type": "biettivo"
+  }
+}

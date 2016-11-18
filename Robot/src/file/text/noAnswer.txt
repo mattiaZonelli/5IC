@@ -1,0 +1,8 @@
+[QUESTION]
+[ANSWER]
+Scusa ma non ho capito
+Sono sicuro che parli la mia lingua ma non capisco
+Non so di chi sia la colpa ma non capisco
+Non sono molto colto
+[EXCEPTION-QUESTION]
+[EXCEPTION-ANSWER]

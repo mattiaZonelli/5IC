@@ -1,0 +1,52 @@
+{
+    "name": {
+        "state": "0",
+        "path": "text/name.txt",
+        "type": "suriettivo"
+    },
+    "regards": {
+        "state": "1",
+        "path": "text/regards.txt",
+        "type": "suriettivo"
+    },
+    "hour": {
+        "state": "2",
+        "path": "text/hour.txt",
+        "type": "suriettivo"
+    },
+    "year": {
+        "state": "3",
+        "path": "text/year.txt",
+        "type": "suriettivo"
+    },
+    "gender": {
+        "state": "0",
+        "path": "text/gender.txt",
+        "type": "suriettivo"
+    },
+    "howfeel": {
+        "state": "0",
+        "path": "text/feel.txt",
+        "type": "suriettivo"
+    },
+    "noAnswer": {
+        "state": "4",
+        "path": "text/noAnswer.txt",
+        "type": "suriettivo"
+    },
+    "generic": {
+        "state": "0",
+        "path": "text/generic.txt",
+        "type": "biettivo"
+    },
+    "thanks": {
+        "state": "0",
+        "path": "text/thanks.txt",
+        "type": "biettivo"
+    },
+    "autoLearn": {
+        "state": "0",
+        "path": "text/autoLearn.txt",
+        "type": "biettivo"
+    }
+}

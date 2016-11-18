@@ -1,0 +1,23 @@
+[QUESTION]
+che anno è ?
+dimmi che anno è ?
+anno
+mostrami l'anno
+dimmi l'anno
+che giorno è ?
+giorno
+dimmi che giorno è 
+dimmi il giorno
+mostrami il giorno
+mese
+che mese è ?
+dimmi che mese è 
+dimmi il mese
+mostrami il mese
+[ANSWER]
+Siamo il
+[EXCEPTION-QUESTION]
+data
+[EXCEPTION-ANSWER]
+Vuoi sapere la data ?
+

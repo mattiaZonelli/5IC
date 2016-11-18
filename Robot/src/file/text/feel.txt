@@ -1,0 +1,17 @@
+[QUESTION]
+come ti senti ?
+come stai ?
+come ti senti oggi ?
+come stai oggi ?
+tutto bene ?
+come va ?
+[ANSWER]
+Si dai non c'è male
+Potrebbe andare meglio
+Non potrebbe andare meglio
+La settimana prossima vado in Australia quindi direi alla grande
+[EXCEPTION-QUESTION]
+senti
+va
+[EXCEPTION-ANSWER]
+Vuoi sapere come sto ?

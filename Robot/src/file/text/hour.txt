@@ -1,0 +1,13 @@
+[QUESTION]
+che ora è ?
+dimmi che ora è adesso ?
+orario
+ora adesso
+mostrami l'ora
+dimmi l'ora
+[ANSWER]
+Sono le
+[EXCEPTION-QUESTION]
+ora
+[EXCEPTION-ANSWER]
+Vuoi sapere l'ora ?
