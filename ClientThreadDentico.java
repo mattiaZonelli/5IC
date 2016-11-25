@@ -1,59 +1,48 @@
-package chatconthread;
+package comunicazionethread;
 
 import java.net.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Client {
-    Socket connessione;
-    BufferedReader ingresso;
-    BufferedReader tast;
+	Socket conn;
+	InputStreamReader in;
+	OutputStream out;
+	BufferedReader ingresso;
 	PrintStream uscita;
-    OutputStream out;
-    public Client() {
-        try {
-            connessione = new Socket("localhost", 8000);
-            ingresso = new BufferedReader(new InputStreamReader(connessione.getInputStream()));
-            out = connessione.getOutputStream();
-            uscita = new PrintStream(connessione.getOutputStream(), true);
-            tast = new BufferedReader(new InputStreamReader(System.in));
-        } catch (IOException ex) {
-            System.out.println("IO Exception");
-        }
-    }
+	InputStreamReader tast;
+	BufferedReader tastiera;
 
-    public void send() {
-        String msg = "";
-        while (true) {
-            try {
-				System.out.print("Inserisci il messaggio da inviare al Server ('chiudi' per terminare la comunicazione): \n");
-                msg = tast.readLine();
-            } catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if (msg.equalsIgnoreCase("chiudi")) {
-                System.out.println("Connessione scaduta");
-                try {
-                    connessione.close();
-                    break;
-                } catch (IOException ex) {
-                    System.out.println("Chiusura non effettuata");
-                    Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            uscita.println(msg);
-            try {
-                System.out.println("Server: " + ingresso.readLine());
-                uscita.flush();
-            } catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+	public Client() {
+		try {
+			conn = new Socket("localhost", 5000);
+			ingresso = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			out = conn.getOutputStream();
+			uscita = new PrintStream(conn.getOutputStream(), true);
+			tastiera = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Inserisci i messaggi da mandare al Server - chiudi termina la comunicazione.");
+			System.out.print("Client: ");
+		} catch (IOException ex) {
+			System.out.println("IO Exception");
+		}
+	}
 
-    public static void main(String[] args) throws IOException {
-        Client x = new Client();
-        x.send();
-    }
+	public void invia() throws IOException {
+		String messaggio = tastiera.readLine();
+		if (messaggio.equals("chiudi")) {
+			System.out.println("Comunicazione terminata.");
+			conn.close();
+			System.exit(0);
+		}
+
+		uscita.println(messaggio);
+		System.out.println("Server: " + ingresso.readLine());
+		System.out.print("Client: ");
+	}
+
+	public static void main(String[] args) throws IOException {
+		Client c = new Client();
+		while (true) {
+			c.invia();
+		}
+	}
 }

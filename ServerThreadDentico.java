@@ -1,4 +1,4 @@
-package chatconthread;
+package comunicazionethread;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,73 +9,74 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-
-    public static void main(String[] args) throws IOException {
-        final int porta = 8000;
-        System.out.println("Server in ascolto...");
-		ServerSocket serverSocket = new ServerSocket(porta);
-        Socket client;
-        int i = 1;
-        while (true) {
-            client = serverSocket.accept();
-            System.out.println("Client " + i + " si e' collegato sull' indirizzo " + client.getInetAddress() + " e sulla porta " + client.getPort()); 
-            ServerThread serverThread = new ServerThread(i, client);
-            Thread t = new Thread(serverThread);
-            i++;
-            t.start();
-        }
-    }
+	public static void main(String[] args) throws IOException {
+		final int port = 5000;
+		System.out.println("Server in attesa sulla porta " + port);
+		ServerSocket ss = new ServerSocket(port);
+		Socket clientSocket;
+		int i = 1;
+		while (true) {
+			clientSocket = ss.accept();
+			System.out.println("collegamento ricevuto da " + clientSocket.getInetAddress() + " sulla porta " + clientSocket.getPort());
+			ServerThread s = new ServerThread(i, clientSocket);
+			Thread t = new Thread(s);
+			i++;
+			t.start();
+		}
+	}
 }
+
 class ServerThread implements Runnable {
-    Socket clientSocket;
-    int id;
-    public ServerThread(int id, Socket s) {
-        this.clientSocket = s;
-        this.id = id;
-    }
-    @Override
-    public void run() {
-        RecieveClient recieve = new RecieveClient(this.clientSocket, this.id);
-        Thread receiveMessage = new Thread(recieve);
-        receiveMessage.start();
-    }
+	Socket clientSocket;
+	int idClient;
+
+	public ServerThread(int idClient, Socket s) {
+		this.clientSocket = s;
+		this.idClient = idClient;
+	}
+
+	@Override
+	public void run() {
+		RicezioneClient ricezione = new RicezioneClient(this.clientSocket, this.idClient);
+		Thread riceviMessaggio = new Thread(ricezione);
+		riceviMessaggio.start();
+	}
 }
-class RecieveClient implements Runnable {
 
-    Socket clientSocket = null;
-    BufferedReader input = null;
-    Server s;
-    int id;
-    PrintWriter writer;
+class RicezioneClient implements Runnable {
+	Socket clientSocket = null;
+	BufferedReader input = null;
+	Server s;
+	int idClient;
+	PrintWriter scrivi;
 
-    public RecieveClient(Socket Socket, int id) {
-        this.id = id;
-        this.clientSocket = Socket;
-        s = new Server();
-    }
+	public RicezioneClient(Socket Socket, int idClient) {
+		this.idClient = idClient;
+		this.clientSocket = Socket;
+		s = new Server();
+	}
 
-    @Override
-    public void run() {
-        try {
-            input = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
-            writer = new PrintWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
-            String message;
-            String msgClient = "Messaggio ricevuto";
-            while (true) {
-                while ((message = input.readLine()) != null) {
-                    if (message.equalsIgnoreCase("chiudi")) {
-                        break;
-                    }
-                    System.out.println("Client " + this.id + ": " + message);
-                    
-                    writer.println(msgClient);
-                    writer.flush();
-                }
-                this.clientSocket.shutdownOutput();
-                this.clientSocket.shutdownInput();   
-            }
-        } catch (IOException ex) {
-			System.out.println("Client " + id + " disconnesso");
-        }
-    }
+	@Override
+	public void run() {
+		try {
+			input = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
+			scrivi = new PrintWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
+			String messaggioLetto;
+			String confermaMessaggio = "messaggio ricevuto dal Client";
+			while (true) {
+				while ((messaggioLetto = input.readLine()) != null) {
+					if (messaggioLetto.equalsIgnoreCase("chiudi")) {
+						break;
+					}
+					System.out.println("Client " + this.idClient + ": " + messaggioLetto);
+					scrivi.println(confermaMessaggio);
+					scrivi.flush();
+				}
+				clientSocket.shutdownInput();
+				clientSocket.shutdownOutput();
+			}
+		} catch (IOException ex) {
+			System.out.println("Il client con ID " + idClient + " si è disconnesso.");
+		}
+	}
 }
