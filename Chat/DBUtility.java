@@ -11,7 +11,6 @@ public class DBUtility {
     public DBUtility(String path) {
         try {
             c = DriverManager.getConnection("jdbc:sqlite:./src/" + path);
-            System.out.println(c);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -23,7 +22,6 @@ public class DBUtility {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery("SELECT name from User where nickname=\""+nck+"\"");
             name = rs.getString("name");
-            System.out.println("Nome trovato: "+name);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -36,7 +34,6 @@ public class DBUtility {
             Statement stm = c.createStatement();
             ResultSet rs = stm.executeQuery("SELECT name from User where password=\""+passwd+"\"");
             name = rs.getString("name");
-            System.out.println("Nome trovato: "+name);
         } catch (SQLException e) {
             e.printStackTrace();
         }

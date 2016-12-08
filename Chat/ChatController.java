@@ -113,6 +113,14 @@ public class ChatController {
         this.client = client;
     }
 
+    public void addUser(String nck){
+        getUserList().getItems().add(nck);
+    }
+
+    public void removeUser(String nck){
+        getUserList().getItems().remove(nck);
+    }
+
     public void setApplication(ChatroomGui application){
         this.application = application;
     }

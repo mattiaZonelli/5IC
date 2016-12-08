@@ -52,6 +52,8 @@ public class LoginController {
                 getApplication().initChat(getApplication().getDb().getUser(usrname.getText()));
         });
 
+        passwd.setOnAction(loginBtn.getOnAction());
+
         register.setOnAction(event -> {
             getApplication().initRegister();
         });

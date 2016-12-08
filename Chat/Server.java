@@ -43,18 +43,15 @@ public class Server extends Thread{
             while(true) {
                 byte [] inMessage = new byte[256];
                 DatagramPacket inPacket = new DatagramPacket(inMessage,inMessage.length,addr,PORT);
-                System.out.println("Aspetto il messaggio");
                 serverSocket.receive(inPacket);
                 String msg = new String(inPacket.getData(),0,inMessage.length);
 
-                System.out.println("Received: "+msg);
                 // Create a packet that will contain the data
 
                 // (in the form of bytes) and send it.
                 DatagramPacket msgPacket = new DatagramPacket(msg.getBytes(),
                         msg.getBytes().length, addr, PORT);
                 serverSocket.send(msgPacket);
-                System.out.println("Client sent packet with msg: " + msg);
 
                 try {
                     Thread.sleep(500);
