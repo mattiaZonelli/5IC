@@ -74,8 +74,7 @@ public class Client extends Thread {
                 controller.print("Server is temporarily closed!");
             }
             while (true) {
-                //now receive reply
-                //buffer to receive incoming data
+                
                 byte[] buffer = new byte[65536];
                 DatagramPacket reply = new DatagramPacket(buffer, buffer.length, host, port);
                 serverSock.receive(reply);
