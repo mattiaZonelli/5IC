@@ -22,6 +22,7 @@ public class ChatRoom extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setTitle("--ChatRoom--");
         stage.show();
 
         //chiusura della finestra e di tutti i processi

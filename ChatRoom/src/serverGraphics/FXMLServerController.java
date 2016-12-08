@@ -32,6 +32,7 @@ public class FXMLServerController implements Initializable {
         s = new Server();
         s.start();
         label.setText("    UDP Server is runnig!");
+        startBtn.setDisable(true);
     }
     
     @FXML

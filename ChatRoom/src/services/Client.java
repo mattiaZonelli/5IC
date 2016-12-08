@@ -94,7 +94,8 @@ public class Client extends Thread {
                 } else {
                     System.out.println("HOST: " + host + " - MSG: " + stringMsg);
                     if (!stringMsg.isEmpty()) {
-                        controller.print(stringMsg);
+                        String newString = stringMsg.replace("ç", "\n");
+                        controller.print(newString);
                     }
                 }
             }

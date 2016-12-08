@@ -69,22 +69,32 @@ public class Server extends Thread {
                     }
                 } else {
                     String ipv4 = incomingPacket.getSocketAddress().toString().substring(1);
-
+                    String user[] = stringMsg.split(":");
+                    String addUser = "";
                     if (!portArray.contains(ipv4)) {
                         portArray.add(ipv4);
+                        addUser = "           << "+ user[0] + " è entrato nella chatroom >>ç";
                         System.err.println(ipv4);
                     }
-
+                    
+                    if(user[1].equalsIgnoreCase("  close")||user[1].trim().equalsIgnoreCase("  chiudi")){
+                        addUser = "           << "+ user[0] + " è uscito dalla chatroom >";
+                        stringMsg = ">";
+                        System.out.println("uscitp");
+                    }
                     System.out.println(incomingPacket.getAddress().getHostAddress() + " : " + incomingPacket.getPort() + " - " + stringMsg);
 
-                    if (!stringMsg.isEmpty()) {
+                    if (!stringMsg.isEmpty() || stringMsg.equals(">")) {
                         String portAddrs[];
+                        String newString;
                         for (int i = 0; i < portArray.size(); i++) {
                             portAddrs = portArray.get(i).split(":");
-                            DatagramPacket dp = new DatagramPacket(stringMsg.getBytes(), stringMsg.getBytes().length, InetAddress.getByName(portAddrs[0]), Integer.parseInt(portAddrs[1]));
+                            newString = addUser + stringMsg;
+                            DatagramPacket dp = new DatagramPacket(newString.getBytes(), newString.getBytes().length, InetAddress.getByName(portAddrs[0]), Integer.parseInt(portAddrs[1]));
                             //InetAddress.getByName("192.168.1.255") ->>> BROADCAST!!!
                             clientSock.send(dp);
                         }
+                        newString = "";
                         stringMsg = null;
                     }
                 }

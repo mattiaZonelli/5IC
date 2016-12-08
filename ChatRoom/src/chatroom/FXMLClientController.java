@@ -81,6 +81,15 @@ public class FXMLClientController implements Initializable {
                 //clientDisplay.setStyle("-fx-text-fill: #2473f2;");
                 //clientDisplay.appendText(userDisplay.getText() + "\n");
                 c.sendMsg(userName + ":  " + userDisplay.getText());
+                try {
+
+                    if (userDisplay.getText().equalsIgnoreCase("close") || userDisplay.getText().equalsIgnoreCase("chiudi")) {
+                        Thread.sleep(500);
+                        System.exit(1);
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FXMLClientController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 userDisplay.clear();
             }
         }
@@ -91,7 +100,7 @@ public class FXMLClientController implements Initializable {
      * @return
      */
     public int loginInterface() {
-        userExist = new Label("-  -  -");
+        userExist = new Label("");
 
         Dialog<Pair<String, String>> dialog = new Dialog<>();
         dialog.setTitle("Login Dialog");
@@ -128,10 +137,11 @@ public class FXMLClientController implements Initializable {
         btnReg.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                 userExist.setText("Loading...");
                 try {
                     c.setHost(ipServer.getText());
                     c.addUser(username.getText(), password.getText(), userExist);
-                    Thread.sleep(800);
+                    Thread.sleep(1000);
                     String infoMsg = c.infoMsg();
                     userExist.setText(infoMsg);
                 } catch (InterruptedException ex) {

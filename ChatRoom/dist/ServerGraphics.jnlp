@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ChatRoom.jnlp">
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ServerGraphics.jnlp">
   <information>
-    <title>ChatRoom</title>
+    <title>ServerGraphics</title>
     <vendor>Swapnil</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ChatRoom.jar" size="19434" download="eager" />
+    <jar href="ServerGraphics.jar" size="11432" download="eager" />
     <jar href="lib\sqlite-jdbc-3.8.7.jar" size="3959324" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ChatRoom" >
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ServerGraphics" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="chatroom.ChatRoom"  name="ChatRoom" />
+  <jfx:javafx-desc  width="800" height="600" main-class="servergraphics.ServerGraphics"  name="ServerGraphics" />
   <update check="always"/>
 </jnlp>
