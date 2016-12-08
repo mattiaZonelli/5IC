@@ -16,7 +16,7 @@
             <HBox>
                <children>
                   <Label text="Username" />
-                  <TextField fx:id="fieldNickname" />
+                  <TextField fx:id="fieldNickname" prefHeight="25.0" prefWidth="345.0" />
                   <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#btnConnetti" text="Connect" />
                </children>
             </HBox>
@@ -24,12 +24,12 @@
       </VBox>
    </top>
    <center>
-      <TextArea fx:id="txtFieldGrande" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="txtFieldGrande" editable="false" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="txtFieldInput" prefHeight="50.0" prefWidth="200.0" />
+            <TextArea fx:id="txtFieldInput" prefWidth="421.0" />
             <Button fx:id="btnSend" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
          </children>
       </HBox>

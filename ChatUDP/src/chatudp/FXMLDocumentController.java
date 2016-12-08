@@ -13,12 +13,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class FXMLDocumentController  {
+public class FXMLDocumentController {
 
     @FXML
     private ResourceBundle resources;
@@ -41,13 +40,12 @@ public class FXMLDocumentController  {
     @FXML
     private TextField fieldNickname;
 
-    private ClientUDP c;
-
-  
+    public ClientUDP c;
 
     @FXML
     void sendMessage(ActionEvent event) {
         System.out.println("Cliccato il bottone sendMessage");
+        c.send(txtFieldInput.getText());
 
     }
 
@@ -71,13 +69,15 @@ public class FXMLDocumentController  {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws InterruptedException {
         assert btnConnect != null : "fx:id=\"btnConnect\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert txtFieldGrande != null : "fx:id=\"txtFieldGrande\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert txtFieldInput != null : "fx:id=\"txtFieldInput\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert btnSend != null : "fx:id=\"btnSend\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
-        
+
         c = new ClientUDP(this);
+        
         c.run();
+
     }
 }
