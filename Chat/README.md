@@ -1,7 +1,7 @@
 # Secondo Project (deadline 8 dicembre) : ChatRoom
 
 Consegna Prevista 
-- Realizzare **ChatRoom**: l'utente mediante il client dialoga con altri utenti con protocollo UDP 
+- Realizzare **ChatRoom**: l'utente mediante il client collegandosi col server riesce a dialogare con altri utenti con protocollo UDP (il server invia tutti i pacchetti in modalità **broadcasting**. 
 - Il server gestisce le richieste in modo concorrente.
 
 
