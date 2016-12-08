@@ -1,4 +1,4 @@
-﻿# Secondo Project (deadline 8 dicembre) : ChatRoom
+# Secondo Project (deadline 8 dicembre) : ChatRoom
 
 Consegna Prevista 
 - Realizzare **ChatRoom**: l'utente mediante il client dialoga con altri utenti con protocollo UDP 
@@ -25,8 +25,8 @@ Le richieste del prof. ovvero:
 
 **sono state rispettate**.
 
--Ho adottato ulteriori iniziative ovvero registrazione con password e criptazione dei dati.
--La chat non è solo in localhost ma pure in LAN (tra diversi PC).
+- Ho adottato ulteriori iniziative ovvero registrazione con password e criptazione dei dati.
+- La chat non è solo in localhost ma pure in LAN (tra diversi PC).
 
 
 
