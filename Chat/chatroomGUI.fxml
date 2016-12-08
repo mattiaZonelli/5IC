@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../css/material-fx-v0_3.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChatController">
+   <children>
+      <TextArea fx:id="messagesBox" editable="false" layoutX="184.0" layoutY="47.0" prefHeight="285.0" prefWidth="402.0" promptText="Non appena arrivano messaggi, verranno scritti qui!" />
+      <TextField fx:id="toSendArea" layoutX="184.0" layoutY="354.0" prefHeight="26.0" prefWidth="346.0" />
+      <Button fx:id="sendButton" layoutX="536.0" layoutY="354.0" mnemonicParsing="false" style="-fx-background-color: #3ecfef;" text="Invia" />
+      <ListView fx:id="userList" layoutX="14.0" layoutY="46.0" prefHeight="333.0" prefWidth="155.0" />
+      <ImageView fitHeight="120.0" fitWidth="101.0" layoutX="511.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/chatLogo.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="371.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zuccante's Chatroom" />
+      <Text fill="WHITE" layoutX="41.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User logged" />
+   </children>
+</AnchorPane>
