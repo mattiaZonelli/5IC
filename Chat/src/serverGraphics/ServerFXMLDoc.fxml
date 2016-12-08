@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="151.0" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverGraphics.FXMLServerController">
+    <children>
+        <Label fx:id="label" layoutX="15.0" layoutY="27.0" minHeight="16" minWidth="69" prefHeight="29.0" prefWidth="284.0" text="              SERVER" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font></Label>
+      <Button fx:id="startBtn" layoutX="61.0" layoutY="83.0" mnemonicParsing="false" onAction="#startServer" prefHeight="29.0" prefWidth="71.0" text="Start">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="closerBtn" layoutX="186.0" layoutY="83.0" mnemonicParsing="false" onAction="#closeServer" prefHeight="29.0" prefWidth="71.0" text="Close">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
