@@ -9,4 +9,6 @@ Il materiale rispetta le specifiche richieste, in particolare:<br>
 
 La chat prevede una richiesta di inserimento nei contatti e la notifica dell'utente offline.<br>
 
-Data la mancanza di più pc, le prove sono state effettuate "ingannando" il server, ossia facendo memorizzare a due utenti lo stesso IP e quindi reindirizzando il pacchetto dal mittente stesso, ad ogni modo la struttura dovrebbe funzionare.<br>
+Con opportune modifiche si potrebbe rendere il sistema più dinamico, consentire la chat anche in multicast, inviare dati multimediali ed associare ad ogni utente un'immagine.<br>
+
+Data la mancanza di più pc, le prove sono state effettuate "ingannando" il server, ossia facendo memorizzare a due utenti lo stesso IP e quindi reindirizzando il pacchetto al mittente stesso, ad ogni modo la struttura dovrebbe funzionare.<br>
