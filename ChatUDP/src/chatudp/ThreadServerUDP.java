@@ -22,7 +22,7 @@ public class ThreadServerUDP implements Runnable {
 
     final static String MULTICAST_GROUP = "224.0.0.1";
     final static int LUNGHEZZA_BUFFER = 1024;                //bufferini di 1 megabyte
-    final static int PORT = 8087;                           //UDP used by Kaspersky AV Control Center
+    final static int PORT = 4446;                           //UDP used by Kaspersky AV Control Center
 
     protected String recivedPacketToString = "";
     protected DatagramPacket recivedPacket = null;
