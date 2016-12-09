@@ -66,6 +66,7 @@ Appena si avvia la grafica conpare la schermata di login/registrazione, l'utente
 inserire l'indirizzo IP del **Server**, poi li verrà chiesto l'username e password, in tutte i due i casi login/registazione queste informazioni verranno mandate al server in modo criptato e il server dopo aver verficato le varie condizioni permettera o meno 
 di far accedere l'utente alla **Chatroom**. Dopo 3 tentativi di login falliti si chiuderà automaticamente la schermata del login. Appena si inserisce un nuovo utente tutti gli altri lo sapranno e se si vuole uscire dalla ChatRoom si può pure scrivere close o chiudi.
 
+#
 
 - Non sono stati inseriti alcuni file **.class** ed **.xml** di progetto NetBeans.
 
