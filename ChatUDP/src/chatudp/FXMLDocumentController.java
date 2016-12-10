@@ -80,7 +80,7 @@ public class FXMLDocumentController {
         System.out.println("Dentro a inizialize");
 
         c = new ClientUDP(this);
-        ChatUDP.isReady = true;
+        c.run();
         
         
     }

@@ -29,7 +29,7 @@ public class ChatUDP extends Application {
         stage.show();
         
         System.out.println("dentro a start");
-        FXMLDocumentController.c.run();
+       
         
     } 
     /**
