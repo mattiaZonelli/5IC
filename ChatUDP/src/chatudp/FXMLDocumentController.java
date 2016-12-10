@@ -9,7 +9,9 @@ package chatudp;
  *
  * @author MATTEO
  */
+import java.io.IOException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,12 +42,12 @@ public class FXMLDocumentController {
     @FXML
     private TextField fieldNickname;
 
-    public ClientUDP c;
+    public static ClientUDP c;
 
     @FXML
     void sendMessage(ActionEvent event) {
         System.out.println("Cliccato il bottone sendMessage");
-        c.send(txtFieldInput.getText());
+        // c.send(txtFieldInput.getText());
 
     }
 
@@ -69,15 +71,17 @@ public class FXMLDocumentController {
     }
 
     @FXML
-    void initialize() throws InterruptedException {
+    void initialize() throws InterruptedException, UnknownHostException, IOException {
+
         assert btnConnect != null : "fx:id=\"btnConnect\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert txtFieldGrande != null : "fx:id=\"txtFieldGrande\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert txtFieldInput != null : "fx:id=\"txtFieldInput\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         assert btnSend != null : "fx:id=\"btnSend\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
+        System.out.println("Dentro a inizialize");
 
         c = new ClientUDP(this);
+        ChatUDP.isReady = true;
         
-        c.run();
-
+        
     }
 }

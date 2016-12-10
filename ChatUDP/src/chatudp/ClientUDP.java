@@ -8,7 +8,7 @@ package chatudp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.net.*;
 import java.net.MulticastSocket;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -21,9 +21,7 @@ import java.util.logging.Logger;
  */
 public class ClientUDP implements Runnable {
 
-    final static int PORT = 8087;
     final static int BUFFER_LENGTH = 1024;
-    final static String MULTICAST_GROUP = "224.0.0.1";
 
     public DatagramSocket serverSock = null;
     public int port;
@@ -31,44 +29,38 @@ public class ClientUDP implements Runnable {
     public byte[] sendData = null;
     public byte[] receiveData = null;
     public ChatUDP g;
+    byte[] buf;
 
     protected static MulticastSocket socket = null;
     protected static String recivedPacketToString = "";
     protected static DatagramPacket recivedPacket = null;
     FXMLDocumentController controller;
+    DatagramPacket msgPacket;
 
-    byte[] buf;
+    final static String INET_ADDR = "224.0.0.4";
+    final static int PORT = 8888;
+    MulticastSocket clientSocket;
 
-    public ClientUDP(FXMLDocumentController controller) {
+    public ClientUDP(FXMLDocumentController controller) throws UnknownHostException, IOException {
+
         this.controller = controller;
-        try {
-            address = InetAddress.getByName(MULTICAST_GROUP);
-            socket = new MulticastSocket(PORT);
-            socket.joinGroup(address);
-
-            this.sendData = new byte[BUFFER_LENGTH];
-            this.receiveData = new byte[BUFFER_LENGTH];
-
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        address = InetAddress.getByName(INET_ADDR);
+        buf = new byte[256];
+        clientSocket = new MulticastSocket(PORT);
+        msgPacket = new DatagramPacket(buf, buf.length);
+        clientSocket.joinGroup(address);
 
         System.out.println("Client creato");
         controller.setTxtFieldGrande("Client Creato");
     }
 
     public void send(String msg) {
-        try {
-            String toSend = msg;
-            System.out.println("CLient richiede di inviare: " + toSend);
+        String toSend = msg;
 
-           
+        try {
             DatagramPacket sendMsg = new DatagramPacket(toSend.getBytes(), toSend.getBytes().length, address, PORT);
-            System.out.println("Datagramma creato");
-            socket.send(sendMsg);
-            System.out.println("Datagramma inviato");
+            clientSocket.send(sendMsg);
+            System.out.println("Inviato: " + toSend);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,22 +69,26 @@ public class ClientUDP implements Runnable {
 
     @Override
     public void run() {
+
         try {
+            //Joint the Multicast group.
+            //Thread.sleep(2000);
+            System.out.println("dasdasdas");
 
-            send("Primo messaggio");
+            controller.setTxtFieldGrande("Dentro al run");
+            
+            while (true) {
+                // Receive the information and print it.
 
-            System.out.println("Client waiting da packet: ");
-            buf = new byte[BUFFER_LENGTH];
+                clientSocket.receive(msgPacket);
 
-            recivedPacket = new DatagramPacket(buf, buf.length);
-            socket.receive(recivedPacket);
-            recivedPacketToString = new String(buf, 0, buf.length);
-            //String name = recivedPacketToString.substring(0, recivedPacketToString.indexOf(":"));
-
-        } catch (SocketException ex) {
-            Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
+                String msg = new String(buf, 0, buf.length);
+                System.out.println("Socket 1 received msg: " + msg);
+            }
         } catch (IOException ex) {
-            Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            // } catch (InterruptedException ex) {
+            //     Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

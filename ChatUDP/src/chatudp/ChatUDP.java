@@ -17,7 +17,8 @@ import javafx.stage.Stage;
  */
 public class ChatUDP extends Application {
     
-   
+    public static boolean isReady= false;
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -27,13 +28,19 @@ public class ChatUDP extends Application {
         stage.setScene(scene);
         stage.show();
         
+        System.out.println("dentro a start");
+        FXMLDocumentController.c.run();
         
     } 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("dentro a main");
         launch(args);
+      
+   
+         
        
     }
     
