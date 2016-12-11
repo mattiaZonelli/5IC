@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPanel" prefHeight="467.0" prefWidth="774.0" style="-fx-background-color: #13232F;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.ClientController">
+    <stylesheets>
+        <URL value="@client.fxml.css" />
+    </stylesheets>
+    <children>
+        <ScrollPane fx:id="scrollPane" layoutX="160.0" layoutY="45.0" prefHeight="349.0" prefWidth="567.0">
+            <content>
+                <VBox fx:id="VBox" prefHeight="341.0" prefWidth="565.0" />
+            </content>
+        </ScrollPane>
+        <TextField fx:id="inputField" layoutX="160.0" layoutY="414.0" onKeyPressed="#sendMessage" prefHeight="41.0" prefWidth="567.0" promptText="Scrivi un messaggio">
+            <font>
+                <Font name="Raleway SemiBold" size="14.0" />
+            </font>
+        </TextField>
+        <VBox fx:id="VBoxButton" layoutX="727.0" layoutY="45.0" prefHeight="309.0" prefWidth="51.0">
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </VBox>
+        <AnchorPane fx:id="panelSignupLogin" prefHeight="467.0" prefWidth="790.0" style="-fx-background-color: #13232F;">
+            <children>
+                <Pane layoutX="161.0" layoutY="52.0" prefHeight="51.0" prefWidth="476.0">
+                    <children>
+                  <ToggleButton fx:id="toggleSignup" mnemonicParsing="false" onMouseClicked="#signupSelected" prefHeight="51.0" prefWidth="239.0" text="Sign Up">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="toggleLogin" layoutX="238.0" mnemonicParsing="false" onMouseClicked="#loginSelected" prefHeight="51.0" prefWidth="239.0" text="Log In">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </ToggleButton>
+                    </children>
+                </Pane>
+                <Pane fx:id="loginPanel" layoutX="162.0" layoutY="136.0" prefHeight="309.0" prefWidth="476.0" style="-fx-background-color: #13232F;">
+                    <children>
+                        <TextField fx:id="usernameLogin" layoutY="104.0" onKeyPressed="#loginFromTextFieldLogin" prefHeight="40.0" prefWidth="476.0" promptText="Username" />
+                        <PasswordField fx:id="passwordLogin" layoutY="169.0" onKeyPressed="#loginFromPasswordFieldLogin" prefHeight="41.0" prefWidth="392.0" promptText="Password" />
+                        <Button fx:id="buttonLogin" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="59.0" prefWidth="476.0" style="-fx-background-color: #1ab188; -fx-text-fill: white; -fx-cursor: hand;" text="Login">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                        <Label alignment="CENTER" layoutY="6.0" prefHeight="51.0" prefWidth="476.0" style="-fx-font-size: 40;" text="Bentornato !" textFill="WHITE" />
+                        <Label fx:id="errorLabelLogin" alignment="CENTER" contentDisplay="CENTER" layoutY="57.0" prefHeight="40.0" prefWidth="476.0" textFill="RED" />
+                  <ToggleButton fx:id="showHideLogin" layoutX="413.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#showHideLogin" prefHeight="41.0" prefWidth="63.0" style="-fx-background-color: #1ab188; -fx-background-radius: 3;" />
+                  <FontAwesomeIconView fx:id="eyeLogin" fill="WHITE" glyphName="EYE" layoutX="432.0" layoutY="198.0" onMouseClicked="#showHideLogin" size="24.0" style="-fx-cursor: hand;" wrappingWidth="24.999993711709976" />
+                  <FontAwesomeIconView fx:id="eyeSlashLogin" fill="WHITE" glyphName="EYE_SLASH" layoutX="433.0" layoutY="198.0" onMouseClicked="#showHideLogin" size="24.0" style="-fx-cursor: hand;" />
+                  <TextField fx:id="passwordTextLogin" layoutY="169.0" prefHeight="41.0" prefWidth="392.0" promptText="Password" style="-fx-font-family: monospace;" />
+                    </children>
+                </Pane>
+                <Pane fx:id="signupPanel" layoutX="162.0" layoutY="130.0" prefHeight="309.0" prefWidth="476.0" style="-fx-background-color: #13232F;">
+                    <children>
+                        <TextField fx:id="usernameSignup" layoutY="115.0" prefHeight="40.0" prefWidth="476.0" promptText="Username" />
+                        <PasswordField fx:id="passwordSignup" layoutY="170.0" onKeyPressed="#signupFromPasswordFieldSignup" prefHeight="41.0" prefWidth="392.0" promptText="Password" />
+                        <Button fx:id="buttonSignup" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="59.0" prefWidth="476.0" style="-fx-background-color: #1ab188; -fx-text-fill: white; -fx-cursor: hand;" text="Create account">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                        <TextField fx:id="nameSignup" layoutY="59.0" prefHeight="40.0" prefWidth="228.0" promptText="Nome" />
+                        <TextField fx:id="surnameSignup" layoutX="248.0" layoutY="59.0" prefHeight="40.0" prefWidth="228.0" promptText="Cognome" />
+                        <Label fx:id="errorLabelSignup" alignment="CENTER" layoutY="6.0" prefHeight="40.0" prefWidth="476.0" textFill="RED" />
+                  <ToggleButton fx:id="showHideSignup" layoutX="413.0" layoutY="170.0" mnemonicParsing="false" onMouseClicked="#showHideSignup" prefHeight="41.0" prefWidth="63.0" style="-fx-background-color: #1ab188; -fx-background-radius: 3;" />
+                  <FontAwesomeIconView fx:id="eyeSignup" fill="WHITE" glyphName="EYE" layoutX="432.0" layoutY="199.0" onMouseClicked="#showHideSignup" size="24.0" style="-fx-cursor: hand;" wrappingWidth="24.999993711709976" />
+                  <FontAwesomeIconView fx:id="eyeSlashSignup" fill="WHITE" glyphName="EYE_SLASH" layoutX="433.0" layoutY="199.0" onMouseClicked="#showHideSignup" size="24.0" style="-fx-cursor: hand;" />
+                  <TextField fx:id="passwordTextSignup" layoutY="170.0" onKeyPressed="#signupFromTextFieldSignup" prefHeight="41.0" prefWidth="392.0" promptText="Password" style="-fx-font-family: monospace;" />
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

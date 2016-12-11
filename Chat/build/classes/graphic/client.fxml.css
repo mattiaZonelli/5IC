@@ -1,0 +1,163 @@
+/*
+    STRUTTURA GRAFICA MESSAGGIO[1]
+        - panelMessage > (spacePanel - stackPanelMessage) > label
+        
+        PanelMessage      : contiene spacePanel e stackPanelMessage e label
+        SpacePanel        : serve per collocare in modo giusto il messaggio
+                            se a destra o sinistra
+        StackPanelMessage : contente il messaggio
+        Label             : messaggio
+
+    STRUTTURA GRAFICA PROGRAMMA
+        - mainPanel >
+           1 - scrollPane  > VBox > MESSAGGIO[1]
+           2 - inputField
+           3 - buttonPanel > button
+*/
+
+/* <------ MAIN -------> */
+.mainPanel{
+    -fx-background-color: "#f5f1ee";
+}
+
+/* <------ CONTAINER MESSAGGI punto 1 -------> */
+.scrollPane{
+    -fx-padding: 5 3 3 3;
+    -fx-background-color: "#fff";
+}
+
+.VBox{
+    -fx-background-color: "#fff";
+    -fx-padding: 0 20 0 0;
+}
+
+/* MESSAGGIO[1] */
+.panelMessage{
+    -fx-background-color: "#eee";
+    -fx-wrap-text: true;
+    -fx-background-radius: 5;
+}
+
+.panelNewUser{
+    -fx-background-color: "#B2EBF2";
+}
+
+.stackPanelMessage{
+    -fx-padding: 0 10 5 10;
+}
+
+.messageBody{
+    -fx-padding: 5 10 5 10;
+}
+
+.labelMessage{
+    -fx-text-alignment: justify;
+    -fx-font: 14px "Arial";
+    -fx-padding: 2 0 5 0;
+}
+
+.labelMessageName{
+    -fx-font: bold 14px "Arial";
+}
+
+.labelMessageHour{
+    -fx-font: bold 10px "Arial";
+    -fx-text-fill: "#b7b7b7";
+}
+
+.labelNewUser{
+    -fx-text-fill: "#a3a3a3";
+}
+
+.circle-button{
+    -fx-padding: 0.7em 0.57em;
+    -fx-button-type: RAISED;
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;
+    -fx-background-color: transparent;
+    -fx-background-size: 40;
+    -fx-background-radius: 100;
+    -fx-text-fill: transparent;
+}
+
+.circle-button-download{
+    -fx-padding: 0.7em 0.57em;
+    -fx-button-type: FLAT;
+    -fx-pref-width: 40;
+    -fx-pref-height: 40;
+    -fx-background-color: #eee;
+    -fx-background-size: 20;
+    -fx-background-radius: 100;
+    -fx-text-fill: transparent;
+    -fx-cursor: hand;
+}
+
+/* <------ CONTAINER BOTTONI punto 3 -------> */
+.VBoxButton{
+    -fx-padding: 0 0 0 10;
+}
+
+/* <------ TEXT FIELD -------> */
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3;
+    -fx-font-size: 14;
+}
+
+/* <------ BUTTON -------> */
+.toggle-button {
+    -fx-text-fill: #a0b3b0;
+    -fx-background-color: rgba(160, 179, 176, 0.25);
+    -fx-background-radius: 0;
+}
+.toggle-button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: rgba(23, 155, 119, 0.25);
+    -fx-text-fill: white;
+}
+.toggle-button:selected{
+    -fx-background-color: #1ab188;
+    -fx-text-fill: white;
+}
+
+/* <------ CUSTOM SCROLLBAR -------> */
+.scrollPane .scroll-bar:horizontal ,
+.scrollPane  .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.scrollPane .scroll-bar:horizontal .track,
+.scrollPane .scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+}
+
+.scrollPane .scroll-bar:horizontal .increment-button ,
+.scrollPane .scroll-bar:horizontal .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 0 0 0;
+
+}
+
+.scrollPane .scroll-bar:vertical .increment-button ,
+.scrollPane .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+
+}
+
+.scrollPane  .scroll-bar .increment-arrow,
+.scrollPane  .scroll-bar .decrement-arrow{
+    -fx-shape: " ";	
+    -fx-padding:0;
+}
+
+.scrollPane .scroll-bar:horizontal .thumb,
+.scrollPane .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(black,90%);
+}
+
