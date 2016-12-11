@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="communication.Server">
+   <children>
+      <Pane layoutX="53.0" prefHeight="176.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="-2.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello administrator!" textAlignment="CENTER" wrappingWidth="204.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="4.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a chatroom and see what people in it write! Spy, spy, spy!" textAlignment="CENTER" wrappingWidth="191.13671875" />
+            <Button fx:id="start_stop" layoutX="72.0" layoutY="130.0" mnemonicParsing="false" onMouseClicked="#start" prefHeight="25.0" prefWidth="56.0" text="Start" />
+         </children>
+      </Pane>
+      <Pane layoutX="359.0" layoutY="40.0" prefHeight="320.0" prefWidth="227.0">
+         <children>
+            <TextArea fx:id="messages_area" layoutX="3.0" prefHeight="320.0" prefWidth="222.0" />
+         </children>
+      </Pane>
+      <Text layoutX="383.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What users are writing:" textAlignment="CENTER" wrappingWidth="180.0" />
+      <TextArea fx:id="consolle_messages" layoutX="58.0" layoutY="200.0" prefHeight="176.0" prefWidth="191.0" />
+      <Text layoutX="53.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consolle messages:" wrappingWidth="181.0" />
+   </children>
+</fx:root>
