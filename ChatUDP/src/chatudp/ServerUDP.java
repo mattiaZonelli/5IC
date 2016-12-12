@@ -43,30 +43,26 @@ public class ServerUDP implements Runnable {
 
     }
 
-    @Override
     public void run() {
+        System.out.println("server started");
+        try {
+            while (true) {
+                serverSocket.receive(recivedPacket);    
+                String name = new String(recivedPacket.getData(),0,recivedPacket.getLength());
+                System.out.println(name);
+             
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(ServerUDP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(NullPointerException e){
+            System.err.println("Arrivato pacchetto nullo");
+        }
 
     }
 
     public static void main(String[] args) throws IOException {
-        ServerUDP s = new ServerUDP();
-        s.run();
+        
 
     }
 
 }
-
-///////*********************MISTERI DELLA FEDE***************************\\\\\\\
-
-/*
- //Construct the socket
- System.out.println("Server pronto.");
- Scanner input = new Scanner(System.in);
- //while(true)
- for (;;) {
- serverSocket.receive(recivedPacket);
- byte[] data = recivedPacket.getData();
- recivedPacketToString = new String(data, 0, recivedPacket.getLength());
- System.out.println(recivedPacket.getAddress() + " " + recivedPacket.getPort() + ": " + recivedPacketToString);
- // serverSocket.send(recivedDatagram);
- }*/

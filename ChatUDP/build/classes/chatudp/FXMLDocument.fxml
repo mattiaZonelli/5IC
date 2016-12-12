@@ -17,14 +17,15 @@
                <children>
                   <Label text="Username" />
                   <TextField fx:id="fieldNickname" prefHeight="25.0" prefWidth="345.0" />
-                  <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#btnConnetti" text="Connect" />
+                  <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#btnConnetti" text="Start Client" />
+                  <Button fx:id="btnServerStart" mnemonicParsing="false" onAction="#btnStartServer" text="Start Server" />
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <TextArea fx:id="txtFieldGrande" editable="false" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="txtFieldGrande" editable="false" prefHeight="181.0" prefWidth="572.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">

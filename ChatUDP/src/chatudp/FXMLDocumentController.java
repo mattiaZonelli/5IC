@@ -43,18 +43,84 @@ public class FXMLDocumentController {
     private TextField fieldNickname;
 
     public static ClientUDP c;
+    public ServerUDP s;
+    protected String nickname;
+
+    @FXML
+    private Button btnServerStart;
+
+    public ResourceBundle getResources() {
+        return resources;
+    }
+
+    public URL getLocation() {
+        return location;
+    }
+
+    public Button getBtnConnect() {
+        return btnConnect;
+    }
+
+    public TextArea getTxtFieldGrande() {
+        return txtFieldGrande;
+    }
+
+    public TextArea getTxtFieldInput() {
+        return txtFieldInput;
+    }
+
+    public Button getBtnSend() {
+        return btnSend;
+    }
+
+    public TextField getFieldNickname() {
+        return fieldNickname;
+    }
+
+    public static ClientUDP getC() {
+        return c;
+    }
+
+    public ServerUDP getS() {
+        return s;
+    }
+
+    public Button getBtnServerStart() {
+        return btnServerStart;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    @FXML
+    void btnStartServer(ActionEvent event) throws IOException {
+
+        txtFieldGrande.appendText("Richiesta di start del server con Nickname: " + fieldNickname.getText() + "\n");
+        s = new ServerUDP();
+        new Thread(s).start();
+        btnServerStart.setDisable(true);
+    }
 
     @FXML
     void sendMessage(ActionEvent event) {
         System.out.println("Cliccato il bottone sendMessage");
-        // c.send(txtFieldInput.getText());
+
+        c.send(fieldNickname.getText() + ": " + "\"" + txtFieldInput.getText() + "\"");
+        System.err.println("INVIATO: " + fieldNickname.getText() + ": " + "\"" + txtFieldInput.getText() + "\"");
 
     }
 
     @FXML
-    void btnConnetti(ActionEvent event) {
+    void btnConnetti(ActionEvent event) throws IOException {
         System.out.println("Cliccato il bottone connetti.");
-        txtFieldGrande.appendText("Richiesta di connessione con Nickname: " + fieldNickname.getText() + "\n");
+        nickname = fieldNickname.getText();
+        c = new ClientUDP(this);
+        new Thread(c).start();
+        txtFieldGrande.appendText("Richiesta di start del client con Nickname: " + fieldNickname.getText() + "\n");
+        //c.send(fieldNickname.getText()+" si è unito alla chatRoom");
+
+        btnConnect.setDisable(true);
 
     }
 
@@ -70,6 +136,8 @@ public class FXMLDocumentController {
         fieldNickname.appendText(s + "\n");
     }
 
+ 
+
     @FXML
     void initialize() throws InterruptedException, UnknownHostException, IOException {
 
@@ -79,9 +147,5 @@ public class FXMLDocumentController {
         assert btnSend != null : "fx:id=\"btnSend\" was not injected: check your FXML file 'FXMLDocument.fxml'.";
         System.out.println("Dentro a inizialize");
 
-        c = new ClientUDP(this);
-        ChatUDP.isReady = true;
-        
-        
     }
 }

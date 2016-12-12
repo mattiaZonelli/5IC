@@ -10,10 +10,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.*;
 import java.net.MulticastSocket;
-import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -69,25 +66,26 @@ public class ClientUDP implements Runnable {
 
     @Override
     public void run() {
-
         try {
-            //Joint the Multicast group.
-            //Thread.sleep(2000);
-            System.out.println("dasdasdas");
+            System.out.println("Dentro al run");
+            controller.setTxtFieldGrande("Client in esecuzione");
+           send(controller.getNickname()+" si è unito alla chatRoom");
+        
 
-            controller.setTxtFieldGrande("Dentro al run");
-            
             while (true) {
-                // Receive the information and print it.
-
+                DatagramPacket msgPacket = new DatagramPacket(buf, buf.length);
                 clientSocket.receive(msgPacket);
-
                 String msg = new String(buf, 0, buf.length);
-                System.out.println("Socket 1 received msg: " + msg);
+                controller.getTxtFieldGrande().appendText(msg + "\n");
+
+                /*clientSocket.receive(msgPacket);
+
+                 String msg = new String(buf, 0, buf.length);
+                 System.out.println("Socket 1 received msg: " + msg);*/
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-            // } catch (InterruptedException ex) {
+		 // } catch (InterruptedException ex) {
             //     Logger.getLogger(ClientUDP.class.getName()).log(Level.SEVERE, null, ex);
         }
 
