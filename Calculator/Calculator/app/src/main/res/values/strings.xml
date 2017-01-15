@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="zero_digit">0</string>
+    <string name="one_digit">1</string>
+    <string name="two_digit">2</string>
+    <string name="three_digit">3</string>
+    <string name="four_digit">4</string>
+    <string name="five_digit">5</string>
+    <string name="six_digit">6</string>
+    <string name="seven_digit">7</string>
+    <string name="eight_digit">8</string>
+    <string name="nine_digit">9</string>
+    <string name="plus_symbol">+</string>
+    <string name="minus_symbol">-</string>
+    <string name="per_symbol">*</string>
+    <string name="over_symbol">/</string>
+    <string name="equals_symbol">=</string>
+    <string name="point_symbol">.</string>
+    <string name="exp_symbol">^</string>
+</resources>
