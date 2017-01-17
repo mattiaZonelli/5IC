@@ -3,10 +3,12 @@ package com.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-import com.calculator.utils.binarytree.BinaryTree;
+import com.calculator.parser.ExpressionParser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        operations="";
+        operations = "";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initListeners();
@@ -39,34 +41,36 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.equals).setOnClickListener(new ButtonListener(R.id.equals));
 
 
-
     }
 
-    private class ButtonListener implements View.OnClickListener{
+    private class ButtonListener implements View.OnClickListener {
 
         private int code;
-        private ButtonListener (int code){
-           this.code=code;
+        EditText et = (EditText) findViewById(R.id.display);
+
+        private ButtonListener(int code) {
+            this.code = code;
         }
+
         @Override
         public void onClick(View v) {
-            if(code!=R.id.equals) {
-                operations += ((Button) findViewById(code)).getText().toString();
-                EditText et=(EditText)findViewById(R.id.display);
+            if (code != R.id.equals) {
+                operations += ((Button) findViewById(code)).getText().toString()+" ";
+
                 et.setText(operations);
-               et.setSelection(et.length());
-            }
-            else{
-                compute(operations);
-                operations="";
+                et.setSelection(et.length());
+            } else {
+                et.setText(compute(operations));
+                et.setSelection(et.length());
+                operations = "";
             }
         }
     }
 
-    private String compute(String operations){
+    private String compute(String operations) {
         inspect(operations);
-        BinaryTree parsingTree=new BinaryTree();
-        return null;
+        ExpressionParser parser = new ExpressionParser(operations);
+        return parser.parse().toString();
     }
 
     private void inspect(String operations) {

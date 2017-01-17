@@ -143,12 +143,61 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="none"
+        android:textIsSelectable="true"
         android:ems="10"
-        android:id="@+id/display"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/display"
         android:layout_above="@+id/seven"
-        android:layout_alignStart="@+id/seven"
-        tools:ignore="LabelFor" />
+        android:layout_alignParentEnd="true"
+        android:selectAllOnFocus="false"
+        tools:ignore="LabelFor"
+        android:textAlignment="viewEnd" />
+
+    <TabHost
+        android:layout_width="200dip"
+        android:layout_height="300dip"
+        android:layout_above="@+id/one"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
 </RelativeLayout>
