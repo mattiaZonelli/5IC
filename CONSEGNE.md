@@ -21,7 +21,7 @@ con la descrizione informale del progetto.
 .gitignore
 ```
 in locale.
-- Qunato sopra è richiesto per raggiungere una valutazione di sufficienza abbondante. Ogni elemento ulteriore, ad iniziativa dello studente, sarà preso in considerazioni per le valutazioni eccellenti in sede di collquio orale.
+- Qunto sopra è richiesto per raggiungere una valutazione di sufficienza abbondante. Ogni elemento ulteriore, ad iniziativa dello studente, sarà preso in considerazioni per le valutazioni eccellenti in sede di collquio orale.
 
 # Chat: deadline 8 dicembre
 
@@ -46,4 +46,39 @@ con la descrizione informale del progetto.
 .gitignore
 ```
 in locale.
-- Qunato sopra è richiesto per raggiungere una valutazione di sufficienza abbondante. Ogni elemento ulteriore, ad iniziativa dello studente, sarà preso in considerazioni per le valutazioni eccellenti in sede di collquio orale.
+- Qunto sopra è richiesto per raggiungere una valutazione di sufficienza abbondante. Ogni elemento ulteriore, ad iniziativa dello studente, sarà preso in considerazioni per le valutazioni eccellenti in sede di collquio orale.
+
+# Android QUIZ: deadline 27 gennaio 2017
+
+Il progetto è obbligatorio per il raggiungimento di una valutazione sufficiente,
+
+Il progetto comporta la creazione di tre `Activity`: la prima contiene due bottoni per lanciare rispettivamente la seconda e la terza. La seconda e la terza contengono un quiz con domande (V/F o a risposta multipla e di argomento a piacere), una volta terminato il quiz mediante un bottone viene terminata l'`Activity` e si torna alla prima `Activity` dando, cioè visualizzando, uno dei seguenti esiti: "hai risposto correttamente al primo QUIZ", "non hai risposto correttamente al primo QUIZ", "hai risposto correttamente al secondo QUIZ" e "non hai risposto correttamente al secondo QUIZ" (visualizzazione con `Toast` o su testo della prima `Activity`.
+
+Suggeriamo per le widget: `Button`, `EditText`, `CheckBox`, con attenzione a `RadioButton` (vedi [qui](https://developer.android.com/guide/topics/ui/controls/radiobutton.html) per la docuentazione.
+
+Chi usasse un DB SQLite per registrare i QUIZ verrò valutato per l'eccellenza. 
+
+Il progetto va accompagnato dalla documentazione minima scritta nel file 
+```
+README.md
+```
+curare
+```
+.gitignore
+```
+nella propria cartella di lavoro (nella macchina di sviluppo).
+
+# Android calcolatrice: deadline 1 febbraio 2017
+
+Il progetto è facoltativo per chi intenda raggiungere valutazioni sufficienti, obbligatorio per chi intenda raggiungere valutazioni oltre la sufficienza a meno che non lavori col DB SQLite nel progetto precedente.
+
+Il progetto comporta la realizzazione di una calcolatrice (non scientifica).
+Il progetto va accompagnato dalla documentazione minima scritta nel file 
+```
+README.md
+```
+curare
+```
+.gitignore
+```
+nella propria cartella di lavoro (nella macchina di sviluppo).
