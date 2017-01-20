@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 
 /**
@@ -19,6 +20,8 @@ public class ExpressionParser {
 
     private String toParse;
 
+    private Number lastResult;
+
     private Set<String> operators;
 
     private Set<String> brackets;
@@ -27,14 +30,19 @@ public class ExpressionParser {
 
     private Set<String> interpunction;
 
+    private Set<String> junction;
 
-    public ExpressionParser(String toParse) {
+
+    public ExpressionParser(String toParse, Number lastResult) {
         this.toParse = toParse;
+        this.lastResult = lastResult;
         operators = new HashSet<>(4);
         operators.add("+");
         operators.add("-");
         operators.add("*");
         operators.add("/");
+        operators.add("^");
+        operators.add("√");
         brackets = new HashSet<>(6);
         brackets.add("(");
         brackets.add(")");
@@ -56,14 +64,31 @@ public class ExpressionParser {
         interpunction = new HashSet<>(2);
         interpunction.add(",");
         interpunction.add(".");
+        junction = new HashSet<>();
+        junction.addAll(operators);
+        junction.addAll(brackets);
+        junction.addAll(digits);
+        junction.addAll(interpunction);
 
     }
 
+    private void addSpaces(){
+        String temp="";
+       for (int i=0;i<toParse.length();i++){
+           if(operators.contains(""+toParse.charAt(i))){
+               temp+=" "+toParse.charAt(i)+" ";
+           }else{
+               temp+=toParse.charAt(i);
+           }
+       }
+        toParse=temp;
+    }
+
     public String infixToPostfix() {
-        final String ops = "-+/*^";
+        addSpaces();
+        String ops = "-+/*^√";
         StringBuilder sb = new StringBuilder();
         Stack<Integer> s = new Stack<>();
-        System.out.println(Arrays.toString(toParse.split("\\s")));
         for (String token : toParse.split("\\s")) {
             if (token.isEmpty())
                 continue;
@@ -71,7 +96,7 @@ public class ExpressionParser {
             int idx = ops.indexOf(c);
 
             // check for operator
-            if (operators.contains(""+c)) {
+            if (operators.contains("" + c)) {
                 if (s.isEmpty())
                     s.push(idx);
 
@@ -79,7 +104,7 @@ public class ExpressionParser {
                     while (!s.isEmpty()) {
                         int prec2 = s.peek() / 2;
                         int prec1 = idx / 2;
-                        if (prec2 > prec1 || (prec2 == prec1 && c != '^'))
+                        if (prec2 > prec1 || (prec2 == prec1 && c != '^' && c!='\u03C0'))
                             sb.append(ops.charAt(s.pop())).append(' ');
                         else break;
                     }
@@ -102,28 +127,18 @@ public class ExpressionParser {
     }
 
     public Number evalPf(String str) {
+        System.out.println(str);
         Scanner sc = new Scanner(str);
         Stack<Number> stack = new Stack<>();
         while (sc.hasNext()) {
-            if (sc.hasNextInt()) {
+            if (sc.hasNextDouble()) {
+                stack.push(sc.nextDouble());
+            } else if (sc.hasNextInt()) {
                 stack.push(sc.nextInt());
             } else {
-                Number b = stack.pop();
-                Number a = stack.pop();
+                Number b = stack.isEmpty()?null:stack.pop();
+                Number a = stack.isEmpty()?null:stack.pop();
                 char op = sc.next().charAt(0);
-               if (op == '+')
-                    stack.push((isInteger(a) ? a.intValue() : a.doubleValue()) + (isInteger(b) ? b.intValue() : b.doubleValue()));
-                else if (op == '-')
-                    stack.push((isInteger(a) ? a.intValue() : a.doubleValue() )- (isInteger(b) ? b.intValue() : b.doubleValue()));
-                else if (op == '*')
-                    stack.push((isInteger(a) ? a.intValue() : a.doubleValue() )* (isInteger(b) ? b.intValue() : b.doubleValue()));
-                else if (op == '/')
-                    stack.push((isInteger(a) ? a.intValue() : a.doubleValue() )/ (isInteger(b) ? b.intValue() : b.doubleValue()));
-                else if (op == '^')
-                    stack.push(Math.pow(isInteger(a) ? a.intValue() : a.doubleValue(), (isInteger(b) ? b.intValue() : b.doubleValue())));
-
-                /*
-
                 if (op == '+')
                     stack.push(a.doubleValue() + b.doubleValue());
                 else if (op == '-')
@@ -133,7 +148,12 @@ public class ExpressionParser {
                 else if (op == '/')
                     stack.push(a.doubleValue() / b.doubleValue());
                 else if (op == '^')
-                    stack.push(Math.pow(a.doubleValue() , b.doubleValue()));*/
+                    stack.push(Math.pow( a.doubleValue(),b.doubleValue()));
+                else if (op == '√') {
+                    if(a!=null)
+                        stack.push(a); //rimetti dentro il numero estratto per ultimo se presente
+                    stack.push(Math.sqrt(b.doubleValue()));
+                }
             }
             System.out.println(stack);
         }
@@ -142,12 +162,10 @@ public class ExpressionParser {
         return stack.pop();
     }
 
-    private static boolean isInteger(Number number) {
-        return number.doubleValue() ==  number.intValue();
-    }
 
     public Number parse() {
         return evalPf(infixToPostfix());
     }
+
 
 }
