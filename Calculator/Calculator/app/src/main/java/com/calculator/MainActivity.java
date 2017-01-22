@@ -2,12 +2,9 @@ package com.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.calculator.parser.ExpressionParser;
 
@@ -30,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.two).setOnClickListener(new ButtonListener(R.id.two));
         findViewById(R.id.three).setOnClickListener(new ButtonListener(R.id.three));
         findViewById(R.id.four).setOnClickListener(new ButtonListener(R.id.four));
-        findViewById(R.id.five).setOnClickListener(new ButtonListener(R.id.five));
         findViewById(R.id.six).setOnClickListener(new ButtonListener(R.id.six));
+        findViewById(R.id.five).setOnClickListener(new ButtonListener(R.id.five));
         findViewById(R.id.seven).setOnClickListener(new ButtonListener(R.id.seven));
         findViewById(R.id.eight).setOnClickListener(new ButtonListener(R.id.eight));
         findViewById(R.id.nine).setOnClickListener(new ButtonListener(R.id.nine));
@@ -68,16 +65,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     if(code==R.id.pi){
-                        operations+=Math.PI;
+                        operations+="\u03C0";
                     }else if(code==R.id.neper){
-                        operations+=Math.E;
+                        operations+="\u2107";
                     }else {
                         operations += ((Button) findViewById(code)).getText().toString();
                     }
                 }
             } else {
                 compute(operations);
-                operations = "" + lastResult;
+                if(lastResult==null){
+                    operations="Error";
+                    lastResult=null;
+                }else {
+                    operations = "" + lastResult;
+                }
             }
             setTextSize(et);
             et.setText(operations);
@@ -100,10 +102,12 @@ public class MainActivity extends AppCompatActivity {
     private Number compute(String operations) {
         ExpressionParser parser = new ExpressionParser(operations, lastResult);
         lastResult = parser.parse();
-        if(lastResult.doubleValue()-lastResult.intValue()>0) {
-            lastResult=new Double(lastResult.doubleValue());
-        }else{
-            lastResult=new Integer(lastResult.intValue());
+        if(lastResult!=null) {
+            if (lastResult.doubleValue() - lastResult.intValue() > 0) {
+                lastResult = new Double(lastResult.doubleValue());
+            } else {
+                lastResult = new Integer(lastResult.intValue());
+            }
         }
         return lastResult;
     }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFEF6C00</color>
+    <color name="colorPrimary">#2196f3</color>
     <color name="transparent">#00ffffff</color>
-    <color name="colorPrimaryDark">#d84315</color>
-    <color name="digitColor">#e65100</color>
-    <color name="colorAccent">#dd2c00</color>
-    <color name="primaryLightOrange">#c8ff7220</color>
-    <color name="text">#ffffff</color>
+    <color name="colorPrimaryDark">#157ad8</color>
+    <color name="operatorColor">#e02196f3</color>
+    <color name="digitColor">#ffffff</color>
+    <color name="colorAccent">#304ffe</color>
+    <color name="screen">#ffffff</color>
+    <color name="text">#0091ea</color>
 </resources>
