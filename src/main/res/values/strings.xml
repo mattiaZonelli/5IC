@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">GIOCO A QUIZ</string>
+    <string name="main_activity">Scegli uno dei seguenti quiz</string>
+    <string name="press_me">PRIMO QUIZ</string>
+    <string name="press_me2">SECONDO QUIZ</string>
+    <string name="activity_two">Activity Two</string>
+    <string name="state">state</string>
+    <string name="primaSchermata">PRIMA SCHERMATA</string>
+    <string name="correggi">CORREGGI</string>
+    <string name="result_ok">result ok</string>
+    <string name="primaDomanda">La Germania ha vinto la seconda guerra mondiale.</string>
+    <string name="secondaDomanda">Il sismografo è lo strumento che viene utilizzato per registrare i fenomeni sismici.</string>
+    <string name="terzaDomanda">Il Museo del Louvre si trova a Firenze.</string>
+    <string name="quartaDomanda">Il Sole gira intorno alla Terra.</string>
+    <string name="quintaDomanda">Bucarest non è la capitale della Bulgaria.</string>
+    <string name="sestaDomanda">Se mi trovo ad Ostia mi trovo a due passi da Firenze.</string>
+    <string name="vero">Vero</string>
+    <string name="falso">Falso</string>
+    <string name="rgroup"></string>
+    <string name="rgroup2"></string>
+    <string name="rgroup3"></string>
+    <string name="risposteEsatte"></string>
+    <string name="risposteSbagliate"></string>
+
+
+</resources>
