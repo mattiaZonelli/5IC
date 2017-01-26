@@ -1,9 +1,9 @@
 26/1/17
 Si consegna il progetto Quiz in Android con le seguenti caratteristiche
 <ol>
-<li>1. Interazione per estrazione domande tramite database sqlite in locale</li>
-<li>2. Grafica stile vertcal e landscape (landscape solo progettata, per il momento il layout è bloccato tramite modifica al manifest)</li>
-<li>3. Utilizzo di tre diverse activity:</li>
+<li>Interazione per estrazione domande tramite database sqlite in locale</li>
+<li>Grafica stile vertcal e landscape (landscape solo progettata, per il momento il layout è bloccato tramite modifica al manifest)</li>
+<li>Utilizzo di tre diverse activity:</li>
 <ul>
 <li>Una main activity dove viene proposto di creare un nuovo quiz o chiudere l'app</li>
 <li>Un'activity dove vengono proposte le domande</li>
