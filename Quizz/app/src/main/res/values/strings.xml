@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="falseanswer">Falso</string>
+    <string name="trueanswer">Vero</string>
+    <string name="quiz1Quest1">Yeezy just jump over Jumpman?</string>
+    <string name="quiz1Quest2">Nel 2016 il fatturato di Adidas ha superato quello di Nike?</string>
+    <string name="quiz1Quest3">Le Adidas x Yeezy sono attualmente le scarpe con più hype?</string>
+    <string name="quiz1Quest4">Ognuno di no è un HypeBeast?</string>
+    <string name="quiz2Quest1">Tony Cairoli ha vinto 8 modiali?</string>
+    <string name="quiz2Quest2">Nel 2016 Tony ha vinto il mondiale?</string>
+    <string name="quiz2Quest3">Nel 2016 Tim Gajser ha vinto il mondiale?</string>
+    <string name="quiz2Quest4">Jonny Walker è il King of Extreme Enduro?</string>
+    <string name="checkB"> FINISH!</string>
+</resources>
