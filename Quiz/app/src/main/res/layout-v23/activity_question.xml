@@ -30,6 +30,7 @@
 
         <RadioButton
             android:id="@+id/answer1"
+            style="@android:style/Widget.Material.CompoundButton.RadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -66,26 +67,22 @@
 
     <Button
         android:id="@+id/finishButton"
-        style="@android:style/Widget.Material.Button"
+        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="65dp"
         android:layout_toEndOf="@+id/nextQuestion"
-        android:background="@color/colorAccent"
-        android:text="@string/finish"
-        android:textColor="@color/text" />
+        android:text="@string/finish" />
 
     <Button
         android:id="@+id/nextQuestion"
-        style="@android:style/Widget.Material.Button"
+        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="54dp"
-        android:background="@color/colorAccent"
-        android:text="@string/next"
-        android:textColor="@color/text" />
+        android:text="@string/next" />
 
 </RelativeLayout>

@@ -97,7 +97,6 @@ public class SummaryQuestion extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.v("ONCREATEVIEW", "ONCREATEVIEW");
         super.onCreateView(inflater, container, savedInstanceState);
 
         view = inflater.inflate(R.layout.fragment_summary_question, container, false);
@@ -112,9 +111,11 @@ public class SummaryQuestion extends android.app.Fragment {
 
         ((RadioButton) getView().findViewById(R.id.answer4)).setText(answer4);
 
-        if (givenAnswer.equals(" ") || givenAnswer == null) {
-            setNotAnsweredColor(Color.LTGRAY);
-        }else if (!correctAnswer.equals(givenAnswer)) {
+        System.out.println("GIVEN ANSWER: " + givenAnswer);
+        System.out.println("CORRECT ANSWER: " + correctAnswer);
+        if (givenAnswer == null || givenAnswer.equals(" ")) {
+            setNotAnsweredColor(Color.GRAY);
+        } else if (!correctAnswer.equals(givenAnswer)) {
             setAnswerColor(givenAnswer, Color.RED);
         }
 

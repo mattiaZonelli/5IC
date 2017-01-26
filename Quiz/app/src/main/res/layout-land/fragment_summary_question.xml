@@ -6,34 +6,22 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:ignore="UselessParent">
-
-        <TextView
-            android:id="@+id/question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:lineSpacingExtra="4sp"
-            android:text="@string/questionDefault"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textSize="18sp" />
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/question"
+            android:layout_below="@+id/question">
 
             <RadioButton
                 android:id="@+id/answer1"
                 style="@android:style/Widget.Material.Light.CompoundButton.RadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="570dp"
+                android:layout_height="82dp"
                 android:clickable="false"
                 android:duplicateParentState="false"
                 android:text="@string/answerOneDefault"
@@ -63,6 +51,19 @@
                 android:text="@string/answerFourDefault" />
         </RadioGroup>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="569dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/questionDefault"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
 </FrameLayout>

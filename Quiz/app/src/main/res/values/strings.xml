@@ -11,9 +11,6 @@
     <string name="answerFourDefault">Cras vulputate vestibulum tristique. Sed non turpis justo. Aenean fermentum et dui ut accumsan.</string>
     <string name="next">NEXT</string>
     <string name="finish">FINISH</string>
-    <string name="title_activity_summary">Summary</string>
-
-    <string name="action_settings">Settings</string>
 
     <string name="endBtn">END</string>
 

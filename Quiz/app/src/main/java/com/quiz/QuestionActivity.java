@@ -9,9 +9,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 public class QuestionActivity extends Activity {
 
     private String[][] questions;
@@ -24,15 +21,16 @@ public class QuestionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_question);
         questions = (String[][]) getIntent().getExtras().get("key");
         givenAnswers = new String[questions.length];
 
         correctAnswers = new String[questions.length];
-        setContentView(R.layout.activity_question);
 
         refresh();
+
+        questionIndex = 0;
 
         Button nextButton = (Button) findViewById(R.id.nextQuestion);
 
@@ -42,10 +40,10 @@ public class QuestionActivity extends Activity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(questionIndex<questions.length) {
+                if (questionIndex < questions.length) {
                     checkAnswer();
                     refresh();
-                }else{
+                } else {
                     startSummary();
                 }
             }
@@ -58,6 +56,15 @@ public class QuestionActivity extends Activity {
                 startSummary();
             }
         });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, Main_Activity.class));
+        finish();
     }
 
     private void deleteNullValues() {
@@ -79,7 +86,7 @@ public class QuestionActivity extends Activity {
         RadioGroup radioButtonGroup = (RadioGroup) findViewById(R.id.group);
         int radioButtonID = radioButtonGroup.getCheckedRadioButtonId();
         RadioButton radioButton = (RadioButton) radioButtonGroup.findViewById(radioButtonID);
-        givenAnswers[questionIndex] = String.valueOf(radioButton.getText());
+        givenAnswers[questionIndex++] = radioButton == null ? " " : String.valueOf(radioButton.getText());
     }
 
     private void startSummary() {
@@ -94,9 +101,10 @@ public class QuestionActivity extends Activity {
 
     private void refresh() {
         if (questionIndex < questions.length) {
-            ((RadioGroup) findViewById(R.id.group)).clearCheck();
-            setQuestions(questionIndex);
-            questionIndex++;
+            if ((findViewById(R.id.group)) != null) {
+                ((RadioGroup) findViewById(R.id.group)).clearCheck();
+                setQuestions(questionIndex);
+            }
         } else {
             startSummary();
         }
@@ -112,7 +120,6 @@ public class QuestionActivity extends Activity {
         textView.setText(questions[row][1]);
         correctAnswers[questionIndex] = questions[row][2];
         String[] answers = shuffle(row);
-
         button1.setText(answers[0]);
         button2.setText(answers[1]);
         button3.setText(answers[2]);
@@ -121,7 +128,7 @@ public class QuestionActivity extends Activity {
 
     private String[] shuffle(int row) {
         String[] answers = {questions[row][2], questions[row][3], questions[row][4], questions[row][5]};
-        Collections.shuffle(Arrays.asList(answers));
+        //Collections.shuffle(Arrays.asList(answers));
         return answers;
     }
 }

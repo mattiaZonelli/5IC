@@ -34,13 +34,13 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         return NAME_FIELDS.length;
     }
 
+    public static String getField(int index) {
+        return NAME_FIELDS[index];
+    }
+
     public void onDestroy(SQLiteDatabase db) {
         Log.v("DESTROY", "DROP TABLE");
         db.execSQL("DROP TABLE" + TABLE_NAME);
-    }
-
-    public static String getField(int index) {
-        return NAME_FIELDS[index];
     }
 
     public void onCreate(SQLiteDatabase db) {
@@ -65,6 +65,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
     }
 
     public void insert(FeedReaderDbHelper mDbHelper, String[] values) {
+        mDbHelper.onCreate(this.getWritableDatabase());
         Log.v(Integer.toString(Log.ASSERT), "INSERT IN DB");
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -72,7 +73,6 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         for (int i = 1; i < NAME_FIELDS.length; i++) {
             contentValues.put(NAME_FIELDS[i], values[i - 1]);
         }
-        System.out.println(contentValues.toString());
         db.insert(TABLE_NAME, null, contentValues);
 
     }
