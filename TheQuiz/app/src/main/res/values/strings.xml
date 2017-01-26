@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">TheQuiz</string>
+    <string name="rank_name">Classifica</string>
+    <string name="userName_hint">username</string>
+    <string name="inserisciUsername">Inserisci username:</string>
+    <string name="logIn">Log In</string>
+</resources>
