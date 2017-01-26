@@ -1,4 +1,4 @@
-26/1/17
+<time>26/1/17 </time>
 Si consegna il progetto Quiz in Android con le seguenti caratteristiche
 <ol>
 <li>Interazione per estrazione domande tramite database sqlite in locale</li>
