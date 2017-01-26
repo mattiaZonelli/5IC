@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity__two"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.eleonora.quiz.Activity_One"
+    android:weightSum="1">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Question1.1"
+            android:id="@+id/Domanda1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginTop="22dp">
+            <RadioButton
+                android:id="@+id/radiobutton1.1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/V" />
+
+            <RadioButton
+                android:id="@+id/radiobutton1.2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/F" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Question1.2"
+            android:id="@+id/Domanda1.2"
+            android:layout_marginTop="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="26dp">
+
+
+            <RadioButton
+                android:id="@+id/radiobutton1.3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/V" />
+
+            <RadioButton
+                android:id="@+id/radiobutton1.4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/F" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Question1.3"
+            android:id="@+id/Domanda1.3"
+            android:layout_marginTop="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="26dp">
+
+
+            <RadioButton
+                android:id="@+id/radiobutton1.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/V" />
+
+            <RadioButton
+                android:id="@+id/radiobutton1.6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/F" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Question1.4"
+            android:id="@+id/Domanda1.4"
+            android:layout_marginTop="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="26dp">
+
+
+            <RadioButton
+                android:id="@+id/radiobutton1.7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/V" />
+
+            <RadioButton
+                android:id="@+id/radiobutton1.8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/F" />
+
+        </RadioGroup>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/End"
+        android:id="@+id/Fine1"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp" />
+
+</LinearLayout>
+
+
+

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Quiz</string>
+
+    <string name="Choose">Scegli il quiz!</string>
+
+    <string name="Q1">Quiz Scienza</string>
+    <string name="Q2">Quiz Storia</string>
+
+    <string name="V">Vero</string>
+    <string name="F">Falso</string>
+
+    <string name="End">Fine</string>
+
+    <string name="Question1.1">Circa 100 specie viventi abitano sopra e dentro il nostro corpo</string>
+    <string name="Question1.2">Se sparisse la Luna finirebbe la vita sulla Terra</string>
+    <string name="Question1.3">L\'oceano ricopre circa il 70% del pianeta Terra</string>
+    <string name="Question1.4">La giraffa è alta al massimo 5 metri</string>
+
+    <string name="Question2.1">L\'America fu scoperta nel 1764</string>
+    <string name="Question2.2">Remo fu il primo re di Roma</string>
+    <string name="Question2.3">Napoleone nacque in Corsica</string>
+    <string name="Question2.4">L\'Italia entrò nel 1914 nella Prima Guerra Mondiale</string>
+
+</resources>
