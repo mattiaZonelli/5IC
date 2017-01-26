@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SPORT QUIZ</string>
+    <string name="player_name">PLAYER QUIZ</string>
+    <string name="team_name">TEAM QUIZ</string>
+    <string name="false_name">falso</string>
+    <string name="true_name">vero</string>
+    <string name="questionplayer1">1) La maglia numero 8 dei San Antonio Spurs è stat ritirata?</string>
+    <string name="questionplayer2">2) Al momento il miglior assist-man della lega è DeAndre Jordan?</string>
+    <string name="questionplayer3">3) La stagione scorsa ha visto un record di vittorie di fila da parte dei LA Lakers ?</string>
+    <string name="questionplayer4">4) Il miglior difensore attualmente in circolazione e membro del prossimo All Star Game è Kawhi Leonard?</string>
+    <string name="questionteam1">1) I Toronto Raptors giocano le proprie partite casalinghe all\'Air Canada Stadium?</string>
+    <string name="questionteam2">2) Houston rockets vs. San Antonio Spurs è un derby texano?</string>
+    <string name="questionteam3">3) Nel 2015 a vincere l\'anello furono i Chicago Bulls?</string>
+    <string name="questionteam4">4) Michel Jordan è attualmente presidente dei Charlotte Hornets?</string>
+</resources>
