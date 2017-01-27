@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="begin_string">BEGIN QUIZ</string>
+    <string-array name="array_diff">
+        <item>EASY</item>
+        <item>HARD</item>
+    </string-array>
+    <string name="True">True</string>
+    <string name="False">False</string>
+    <string name="Finish">Finish</string>
+
+
+</resources>
