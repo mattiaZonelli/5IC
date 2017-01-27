@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
                     String result = data.getStringExtra("key");
                     if (result.equals("1")) {
                         TextView view = (TextView) findViewById(R.id.textViewVinto);
-                        view.setText("Complimenti. Hai Vinto!");
+                        view.setText("Complimenti. Hai risposto correttamente al primo quiz!");
                     }
 
                     if (result.equals("0")) {
                         TextView view = (TextView) findViewById(R.id.textViewVinto);
-                        view.setText("Hai Perso. Riprova!");
+                        view.setText("Hai Perso. Non hai risposto correttamente al primo quiz!");
                     }
                 }
             }
@@ -60,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
                     String result = data.getStringExtra("key");
                     if (result.equals("1")) {
                         TextView view = (TextView) findViewById(R.id.textViewVinto);
-                        view.setText("Complimenti. Hai Vinto!");
+                        view.setText("Complimenti. Hai risposto correttamente al secondo quiz!");
                     }
 
                     if (result.equals("0")) {
                         TextView view = (TextView) findViewById(R.id.textViewVinto);
-                        view.setText("Hai Perso. Riprova!");
+                        view.setText("Hai Perso. Non hai risposto correttamente al secondo quiz!");
                     }
                 }
             }
