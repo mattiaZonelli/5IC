@@ -11,8 +11,8 @@ activity_main.xml>  Documento in xml che contiene la grafica per la calcolatrice
 ```
 
 Per quanto riguarda l'algoritmo eval() per il calcolo del risultato ho preso spunto
-da Internet.
+da Internet, facendo appropriate modifiche per migliorarlo.
 
-- Il progetto è stato realizzato da l'IDE **Android Studio 2.2.1** con versione API minima 19.
+- Il progetto Ã¨ stato realizzato da l'IDE **Android Studio 2.2.1** con versione API minima 19.
 
 **Swapnil Paul, 26.01.2017**
