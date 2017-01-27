@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="@string/txtquizz1a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/btn1a1"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn1a"
+
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <Button
+        android:text="@string/btn1a2"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2a"
+        android:layout_below="@+id/btn1a"
+        android:layout_alignLeft="@+id/btn1a"
+        android:layout_alignStart="@+id/btn1a"
+        android:layout_alignRight="@+id/btn1a"
+        android:layout_alignEnd="@+id/btn1a"
+        android:background="?android:attr/colorButtonNormal" />
+
+    <Button
+        android:text="@string/btn1a3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn2a"
+        android:layout_alignLeft="@+id/btn2a"
+        android:layout_alignStart="@+id/btn2a"
+        android:id="@+id/btn3a"
+        android:layout_alignRight="@+id/btn2a"
+        android:layout_alignEnd="@+id/btn2a" />
+
+    <TextView
+        android:text="@string/txtquizz1b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/btn3a"
+        android:layout_alignStart="@+id/btn3a"
+        android:layout_below="@+id/btn3a"
+        android:textSize="24sp" />
+
+    <Button
+        android:text="@string/btn1b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/btn1b"
+        android:layout_alignRight="@+id/btn3a"
+        android:layout_alignEnd="@+id/btn3a"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <Button
+        android:text="@string/btn1b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2b"
+        android:layout_below="@+id/btn1b"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/btn1b"
+        android:layout_alignStart="@+id/btn1b" />
+
+    <Button
+        android:text="@string/btn1b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn3b"
+        android:layout_below="@+id/btn2b"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/btn2b"
+        android:layout_alignStart="@+id/btn2b" />
+
+</RelativeLayout>

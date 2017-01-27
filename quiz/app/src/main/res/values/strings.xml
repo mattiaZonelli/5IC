@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">quiz</string>
+    <string name="iniziale">BENVENUTO NEL QUIZZONE DI LUCA</string>
+    <string name="quiz1b">quiz calcio</string>
+    <string name="quiz2b">quiz auto</string>
+    <string name="txtquizz1a">quale squadra ha vinto più champions?</string>
+    <string name="btn1a1">juventus</string>
+    <string name="btn1a2">milan</string>
+    <string name="btn1a3">fossò</string>
+    <string name="txtquizz1b">la coppia più forte d attacco</string>
+    <string name="btn1b1">robinho-ibrahimovic</string>
+    <string name="btn1b2">buffon-rizzoli</string>
+    <string name="btn1b3">recoba-maniero</string>
+    <string name="giusta">grande!! hai indovinato</string>
+    <string name="sbagliata">ops!! hai sbagliato</string>
+    <string name="txtquizz2a">il vincitore più prolifico della storia del rally</string>
+    <string name="btn2a1">lancia</string>
+    <string name="btn2a2">audi</string>
+    <string name="btn2a3">lada</string>
+    <string name="txtquizz2b">la berlina di classe c migliore</string>
+    <string name="btn3b1">audi a 4</string>
+    <string name="btn3b2">alfa giulia </string>
+    <string name="btn3b3">bmw 320</string>
+</resources>
