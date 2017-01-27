@@ -10,6 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.quiz.Main_Activity">
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="73dp"
+        android:gravity="bottom"
+        android:textStyle="normal|bold" />
+
     <Button
         android:id="@+id/newActivityButton"
         style="@android:style/Widget.Material.Button"
@@ -17,9 +27,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="95dp"
         android:background="@color/colorAccent"
-        android:text="@string/newActivity"
+        android:text="@string/newMultiple"
+        android:textColor="@color/text" />
+
+    <Button
+        android:id="@+id/newActivity2"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/newActivityButton"
+        android:layout_alignStart="@+id/newActivityButton"
+        android:layout_below="@+id/newActivityButton"
+        android:layout_marginTop="35dp"
+        android:background="@color/colorAccent"
+        android:text="@string/newTrueOrFalse"
         android:textColor="@color/text" />
 
     <Button
@@ -27,12 +50,23 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/newActivityButton"
-        android:layout_alignStart="@+id/newActivityButton"
-        android:layout_below="@+id/newActivityButton"
-        android:layout_marginTop="46dp"
+        android:layout_alignEnd="@+id/newActivity2"
+        android:layout_alignStart="@+id/newActivity2"
+        android:layout_below="@+id/newActivity2"
+        android:layout_marginTop="43dp"
         android:background="@color/colorAccent"
         android:elevation="5dp"
         android:text="@string/quit"
         android:textColor="@color/text" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:prompt="@string/easy"
+        android:spinnerMode="dropdown" />
 </RelativeLayout>

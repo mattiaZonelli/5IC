@@ -11,59 +11,59 @@ import android.widget.TextView;
 
 public class QuestionActivity extends Activity {
 
+    private final int CODE = 3;
     private String[][] questions;
     private int questionIndex = 0;
-
     private String givenAnswers[];
-
     private String[] correctAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        questions = (String[][]) getIntent().getExtras().get("key");
-        givenAnswers = new String[questions.length];
+        if (getIntent().getExtras() != null) {
+            questions = (String[][]) getIntent().getExtras().get("key");
+            givenAnswers = new String[questions.length];
 
-        correctAnswers = new String[questions.length];
+            correctAnswers = new String[questions.length];
 
-        refresh();
+            refresh();
 
-        questionIndex = 0;
+            questionIndex = 0;
 
-        Button nextButton = (Button) findViewById(R.id.nextQuestion);
+            Button nextButton = (Button) findViewById(R.id.nextQuestion);
 
-        Button finishButton = (Button) findViewById(R.id.finishButton);
+            Button finishButton = (Button) findViewById(R.id.finishButton);
 
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (questionIndex < questions.length) {
-                    checkAnswer();
-                    refresh();
-                } else {
+            nextButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (questionIndex < questions.length) {
+                        checkAnswer();
+                        refresh();
+                    } else {
+                        startSummary();
+                    }
+                }
+            });
+
+            finishButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteNullValues();
                     startSummary();
                 }
-            }
-        });
+            });
 
-        finishButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteNullValues();
-                startSummary();
-            }
-        });
-
-
+        } else {
+            finish();
+        }
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, Main_Activity.class));
         finish();
     }
 
@@ -96,7 +96,7 @@ public class QuestionActivity extends Activity {
         intent.putExtra("QUESTIONS", bundle);
         intent.putExtra("ANSWERS", givenAnswers);
         intent.putExtra("CORRECT_ANSWERS", correctAnswers);
-        startActivity(intent);
+        startActivityForResult(intent, CODE);
     }
 
     private void refresh() {
@@ -130,5 +130,18 @@ public class QuestionActivity extends Activity {
         String[] answers = {questions[row][2], questions[row][3], questions[row][4], questions[row][5]};
         //Collections.shuffle(Arrays.asList(answers));
         return answers;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CODE) {
+            if (resultCode == CODE) {
+                System.out.println("CODICE: " + CODE);
+                System.out.println(data);
+                setResult(CODE, data);
+                QuestionActivity.this.finish();
+            }
+        }
     }
 }

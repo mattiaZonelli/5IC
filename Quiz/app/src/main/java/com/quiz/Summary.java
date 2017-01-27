@@ -18,17 +18,27 @@ public class Summary extends Activity {
     private final int ANSWER_3 = 4;
     private final int ANSWER_4 = 5;
     private final int CORRECT_ANSWER = 6;
+    private final int CODE = 3;
+    private int score = 0;
+    private String[][] questions;
+    private String[] givenAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
+
+        questions = (String[][]) getIntent().getBundleExtra("QUESTIONS").getSerializable("QUESTIONS");
+        givenAnswers = getIntent().getStringArrayExtra("ANSWERS");
+
         Button endButton = (Button) findViewById(R.id.endButton);
         endButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Summary.this, Main_Activity.class);
-                startActivity(intent);
+                intent.putExtra("SCORE", score);
+                setResult(CODE, intent);
+                Summary.this.finish();
             }
         });
     }
@@ -45,10 +55,13 @@ public class Summary extends Activity {
     protected void onStart() {
         super.onStart();
 
-        String[][] questions = (String[][]) getIntent().getBundleExtra("QUESTIONS").getSerializable("QUESTIONS");
-        String[] givenAnswers = getIntent().getStringArrayExtra("ANSWERS");
-
+        for (int i = 0; i < givenAnswers.length; i++) {
+            if (questions[i][Integer.parseInt(questions[i][CORRECT_ANSWER])].equals(givenAnswers[i])) {
+                score++;
+            }
+        }
         // System.out.println("GIVEN ANSWERS: "+Arrays.toString(givenAnswers));
+
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -60,4 +73,5 @@ public class Summary extends Activity {
         }
         fragmentTransaction.commit();
     }
+
 }

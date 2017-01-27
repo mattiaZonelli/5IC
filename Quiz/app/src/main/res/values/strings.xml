@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Quiz</string>
-    <string name="newActivity">NEW</string>
+    <string name="newMultiple">MULTIPLE QUESTIONS 1</string>
+    <string name="newTrueOrFalse">MULTIPLE QUESTIONS 2</string>
     <string name="quit">QUIT</string>
     <string name="questionDefault">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -11,7 +12,10 @@
     <string name="answerFourDefault">Cras vulputate vestibulum tristique. Sed non turpis justo. Aenean fermentum et dui ut accumsan.</string>
     <string name="next">NEXT</string>
     <string name="finish">FINISH</string>
-
     <string name="endBtn">END</string>
+
+    <string name="easy">EASY</string>
+    <string name="medium">MEDIUM</string>
+    <string name="difficult">DIFFICULT</string>
 
 </resources>
