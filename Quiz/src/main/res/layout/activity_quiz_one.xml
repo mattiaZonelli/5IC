@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/colorWallpaper"
+    android:paddingTop="20dp">
+
+
+    <TextView
+        android:text="Domanda "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionCount"
+        android:textColor="@color/white"
+        android:layout_marginTop="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/separator"
+        android:layout_alignEnd="@+id/separator"
+        android:gravity="center_horizontal"
+        android:textSize="30sp" />
+
+    <View android:id="@+id/separator"
+        android:background="#ffffff"
+        android:layout_width = "match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="22dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/questionCount"
+        android:layout_centerHorizontal="true" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/white"
+        android:id="@+id/cardView"
+        android:layout_below="@+id/separator"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/quizTypeView"
+            android:layout_margin="20dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/grey"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/quizQuestionView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:textSize="20sp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"/>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:text="Vero"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:id="@+id/buttonTrue"
+        android:elevation="4dp"
+        android:textSize="20sp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/grey"
+        android:onClick="buttonOnClick"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/cardView"
+        android:layout_alignStart="@+id/buttonFalse"
+        android:layout_alignEnd="@+id/cardView" />
+
+    <Button
+        android:text="Falso"
+        android:layout_width="wrap_content"
+        android:id="@+id/buttonFalse"
+        android:layout_height="70dp"
+        android:elevation="4dp"
+        android:textSize="20sp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/grey"
+        android:onClick="buttonOnClick"
+        android:layout_below="@+id/buttonTrue"
+        android:layout_alignStart="@+id/cardView"
+        android:layout_alignEnd="@+id/cardView"
+        android:layout_marginBottom="50dp"/>
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/buttonNext"
+        android:onClick="buttonOnClick"
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:src="@drawable/arrow_next"
+        app:cb_color="@color/teal"
+        app:cb_pressedRingWidth="8dip"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignBottom="@+id/finishQuiz"
+        android:layout_alignEnd="@+id/buttonFalse" />
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/buttonPrevious"
+        android:onClick="buttonOnClick"
+        android:layout_width="64dip"
+        android:layout_height="64dip"
+        android:src="@drawable/arrow_back"
+        app:cb_color="@color/teal"
+        app:cb_pressedRingWidth="8dip"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignBottom="@+id/finishQuiz"
+        android:layout_alignStart="@+id/buttonFalse" />
+
+    <Button
+        android:text="FINE"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:elevation="4dp"
+        android:textSize="20sp"
+        android:id="@+id/finishQuiz"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:onClick="buttonOnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp" />
+
+
+</RelativeLayout>

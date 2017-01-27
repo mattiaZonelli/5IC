@@ -1,0 +1,75 @@
+{
+  "count" : 10,
+  "data": {
+    "1": {
+      "ID": "1",
+      "Type": "Italiano",
+      "Question": "Inalberarsi vuol dire salire in alto ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "2": {
+      "ID": "2",
+      "Type": "Storia",
+      "Question": "Marco Polo nacque nel 1324?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "3": {
+      "ID": "3",
+      "Type": "Cultura",
+      "Question": "Il noto filosofo e naturalista Bernardino Telesio nacque a Genova ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "4": {
+      "ID": "4",
+      "Type": "Storia",
+      "Question": "L'eroe greco Achille fu ucciso da Ettore ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "5": {
+      "ID": "5",
+      "Type": "Musica",
+      "Question": "Il sistro era uno strumento musicale a percussione dell'antico Egitto? ",
+      "Answer": "si",
+      "clickTrue": ""
+    },
+    "6": {
+      "ID": "6",
+      "Type": "Storia",
+      "Question": "Zagabria fu dal 1941 al 1945 capitale del nuovo regno di Croazia ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "7": {
+      "ID": "7",
+      "Type": "Astrologia",
+      "Question": "La stella di prima grandezza Idebaran fa parte della costellazione dello Scorpione ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "8": {
+      "ID": "8",
+      "Type": "Anatomia",
+      "Question": "I globuli rossi del sangue sono detti anche emazie ?",
+      "Answer": "si",
+      "clickTrue": ""
+    },
+    "9": {
+      "ID": "9",
+      "Type": "Chimica",
+      "Question": "L'ammoniaca, gas incolore di odore acuto ed irritante, è composta di ossigeno e di cloro ?",
+      "Answer": "no",
+      "clickTrue": ""
+    },
+    "10": {
+      "ID": "10",
+      "Type": "Geografia",
+      "Question": "La nota Cappella degli Scrovegni si trova a Verona?",
+      "Answer": "no",
+      "clickTrue": ""
+    }
+  }
+}
