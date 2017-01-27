@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="Quiz1">Quiz1</string>
+    <string name="Quiz2">Quiz2</string>
+    //Domande Quiz1
+    <string name="Question1">!) Donald Trump è il presidente degli stati uniti d\'America?</string>
+    <string name="Question2">2) L\'Austria confina con la Francia?</string>
+    <string name="Question3">3) Giovanni Giolitti è stato un politico italiano e più volte presidente del consiglio dei ministri?</string>
+    <string name="Question4">4) Angelina Jolie vuole divorziare da Brad Pitt?</string>
+    //Domande Quiz2
+    <string name="Question100">1) Lebron James è un giocatore dei Cleveland Cavaliers?</string>
+    <string name="Question101">2) James Harden viene soprannominato il \"Barba\"?</string>
+    <string name="Question102">3) L\'attuale miglior difensore dell\'NBA è Kawhi Leonard?</string>
+    <string name="Question103">4) Russell Westbrook ha fatto più di 20 "TRIPLE DOPPIE" nella stagione in corso(2016-2017)?</string>
+    <string name="V">Vero</string>
+    <string name="F">Falso</string>
+</resources>
