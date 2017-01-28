@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../css/material-fx-v0_3.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+   <children>
+      <Text fill="WHITE" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zuccante's Chatroom" wrappingWidth="410.51513671875">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="61.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="64.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="444.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
+         <image>
+            <Image url="@../../../img/chatLogo.png" />
+         </image>
+      </ImageView>
+      <TextField  fx:id="usrname" layoutX="215.0" layoutY="103.0" />
+      <PasswordField fx:id="passwd" layoutX="215.0" layoutY="151.0" />
+      <Text fill="WHITE" layoutX="48.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log-in:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="195.0" layoutY="323.0" stroke="#b23f3f" strokeType="OUTSIDE" strokeWidth="0.0" text="Oppure" />
+      <Button fx:id="loginBtn" layoutX="266.0" layoutY="217.0" mnemonicParsing="false" text="Login" />
+      <Text fx:id="nckError" fill="RED" layoutX="405.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="passwdError" fill="RED" layoutX="405.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="register" layoutX="260.0" layoutY="306.0" mnemonicParsing="false" text="Registrati" />
+   </children>
+</AnchorPane>
