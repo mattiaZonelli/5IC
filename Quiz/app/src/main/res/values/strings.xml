@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Quiz IT</string>
+    <string name="title_activity_questions">Domande</string>
+    <string name="startQuiz">Inizia Quiz</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="finish">Finish</string>
+</resources>
