@@ -1,5 +1,5 @@
 -Riorganizzazione prevalentemente estetica della struttura delle classi
 -Protocollo di disconnessione dal server aggiunto, ma nascosto al lato client
 -Aggiunta di meno righe di codice possibili per controllare la sequenza di disconnessoine
--Aggiunta della classe ClientHandler (implementa Runnable) che permette a più utenti di
+-Aggiunta della classe ClientHandler (implementa Runnable) che permette a piÃ¹ utenti di
 connettersi contemporanemante al server tramite le sue istanze (utilizzo di Threads)
