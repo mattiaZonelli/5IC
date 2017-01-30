@@ -1,14 +1,15 @@
 package com.calculator;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.calculator.parser.ExpressionParser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static String operations;
     private Number lastResult;
@@ -44,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.pi).setOnClickListener(new ButtonListener(R.id.pi));
         findViewById(R.id.neper).setOnClickListener(new ButtonListener(R.id.neper));
         findViewById(R.id.exp).setOnClickListener(new ButtonListener(R.id.exp));
-
+        findViewById(R.id.CE).setOnClickListener(new ButtonListener(R.id.CE));
+        OrientationEventListener orientationEventListener=new OrientationEventListener(getApplicationContext()) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                setTextSize((EditText) findViewById(R.id.display));
+            }
+        };
     }
 
     private class ButtonListener implements View.OnClickListener {
@@ -54,30 +61,37 @@ public class MainActivity extends AppCompatActivity {
 
         private ButtonListener(int code) {
             this.code = code;
+            et.setTextSize(85);
         }
 
         @Override
         public void onClick(View v) {
             if (code != R.id.equals) {
-                if (code == R.id.delete) {
-                    if(operations.length()>0){ //problema se cancello numero già presente
+                if (code == R.id.CE) {
+                    operations = "";
+                    lastResult = null;
+                } else if (code == R.id.delete) {
+                    if (operations.length() > 0) { //problema se cancello numero già presente
                         operations = operations.substring(0, operations.length() - 1);
                     }
                 } else {
-                    if(code==R.id.pi){
-                        operations+="\u03C0";
-                    }else if(code==R.id.neper){
-                        operations+="\u2107";
-                    }else {
+                    if (code == R.id.pi) {
+                        operations += "\u03C0";
+                    } else if (code == R.id.neper) {
+                        operations += "\u2107";
+                    } else {
                         operations += ((Button) findViewById(code)).getText().toString();
                     }
                 }
             } else {
+                if (operations.startsWith("-") || operations.startsWith("+")) {
+                    operations = "0" + operations;
+                }
                 compute(operations);
-                if(lastResult==null){
-                    operations="Error";
-                    lastResult=null;
-                }else {
+                if (lastResult == null) {
+                    operations = "Error";
+                    lastResult = null;
+                } else {
                     operations = "" + lastResult;
                 }
             }
@@ -87,23 +101,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setTextSize(EditText et){
-        if(operations.length()<=4){
-          et.setTextSize(getResources().getDimension(R.dimen.largeText));
-        }else if(operations.length()<=8){
-            et.setTextSize(getResources().getDimension(R.dimen.mediumText));
-        }else if (operations.length()<=12){
-            et.setTextSize(getResources().getDimension(R.dimen.smallText));
-        }else{
-            et.setTextSize(getResources().getDimension(R.dimen.xsmallText));
+
+    private void setTextSize(EditText et) {
+        if (operations.length() % 5 == 0 || (lastResult != null && lastResult.toString().equals(operations))) {
+            if (operations.length() != 0) {
+                et.setTextSize((float) (60 / Math.log10(operations.length() == 1 || operations.length() == 0 ? 2 : operations.length())));
+            }
         }
+        System.out.println(operations.length());
+
     }
 
     private Number compute(String operations) {
         ExpressionParser parser = new ExpressionParser(operations, lastResult);
         lastResult = parser.parse();
-        if(lastResult!=null) {
-            if (lastResult.doubleValue() - lastResult.intValue() > 0) {
+        if (lastResult != null) {
+            if (Math.signum(lastResult.doubleValue()) * (lastResult.doubleValue() - lastResult.intValue()) > 0) {
                 lastResult = new Double(lastResult.doubleValue());
             } else {
                 lastResult = new Integer(lastResult.intValue());
@@ -111,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return lastResult;
     }
-
 
 
 }

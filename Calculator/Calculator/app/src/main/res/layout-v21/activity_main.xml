@@ -15,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/text"
+        android:maxLines="2"
         android:inputType="none"
-        android:maxLines="7"
         android:textIsSelectable="true"
         android:ems="10"
         android:layout_alignParentTop="true"
@@ -26,12 +26,11 @@
         tools:ignore="LabelFor"
         android:background="@color/screen"
         android:textColorLink="@android:color/holo_blue_dark"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/CE" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="@string/euler_symbol"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -41,12 +40,9 @@
         android:id="@+id/neper"
         android:layout_above="@+id/sqrt"
         android:layout_alignStart="@+id/sqrt"
-        android:textSize="30sp"
-        android:elevation="0dp"
-        tools:targetApi="lollipop" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/three_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -59,7 +55,6 @@
         android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/zero_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -70,12 +65,9 @@
         android:layout_alignBottom="@+id/neper"
         android:layout_toStartOf="@+id/sqrt"
         android:layout_below="@+id/three"
-        android:textSize="30sp"
-        android:elevation="0dp"
-        tools:targetApi="lollipop" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/pi_symbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,12 +77,9 @@
         android:id="@+id/pi"
         android:layout_alignBottom="@+id/zero"
         android:layout_toStartOf="@+id/zero"
-        android:textSize="30sp"
-        android:elevation="0dp"
-        tools:targetApi="lollipop" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/two_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -103,7 +92,6 @@
         android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/nine_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -114,12 +102,9 @@
         android:layout_alignBottom="@+id/eight"
         android:layout_toEndOf="@+id/eight"
         android:layout_alignTop="@+id/seven"
-        android:textSize="30sp"
-        android:elevation="0dp"
-        tools:targetApi="lollipop" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/point_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -130,12 +115,9 @@
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/equals"
         android:textSize="30sp"
-        tools:ignore="RelativeOverlap"
-        android:elevation="0dp"
-        tools:targetApi="lollipop" />
+        tools:ignore="RelativeOverlap" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/equals_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -145,11 +127,9 @@
         android:id="@+id/equals"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/pi"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/seven_digit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -159,11 +139,9 @@
         android:layout_above="@+id/four"
         android:textStyle="normal|bold"
         android:textSize="30sp"
-        android:layout_alignStart="@+id/four"
-        android:elevation="0dp" />
+        android:layout_alignStart="@+id/four" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/exp_symbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,14 +149,12 @@
         android:textStyle="bold"
         android:textColor="@color/digitColor"
         android:background="@color/operatorColor"
-        tools:ignore="RelativeOverlap,UnusedAttribute"
+        tools:ignore="RelativeOverlap"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/three"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sqrt"
@@ -188,11 +164,9 @@
         android:background="@color/operatorColor"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/exp"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/per_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -205,7 +179,6 @@
         android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/minus_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -215,11 +188,9 @@
         android:id="@+id/minus"
         android:layout_above="@+id/per"
         android:layout_toEndOf="@+id/three"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/over_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -229,11 +200,9 @@
         android:id="@+id/slash"
         android:layout_alignBottom="@+id/neper"
         android:layout_toEndOf="@+id/neper"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/one_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -243,11 +212,9 @@
         android:id="@+id/one"
         android:layout_above="@+id/pi"
         android:layout_toStartOf="@+id/two"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/plus_symbol"
         android:textStyle="bold"
         android:textColor="@color/digitColor"
@@ -257,11 +224,9 @@
         android:id="@+id/plus"
         android:layout_above="@+id/minus"
         android:layout_alignStart="@+id/minus"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/four_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -271,11 +236,9 @@
         android:id="@+id/four"
         android:layout_alignStart="@+id/one"
         android:layout_below="@+id/eight"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/eight_digit"
         android:textColor="@color/text"
         android:background="@color/digitColor"
@@ -287,11 +250,9 @@
         android:fontFamily="sans-serif"
         android:typeface="normal"
         android:textStyle="normal|bold"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/six_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -301,11 +262,9 @@
         android:id="@+id/six"
         android:layout_below="@+id/plus"
         android:layout_toEndOf="@+id/five"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/five_digit"
         android:textStyle="bold"
         android:textColor="@color/text"
@@ -317,11 +276,9 @@
         android:layout_alignBottom="@+id/four"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/nine"
-        android:textSize="30sp"
-        android:elevation="0dp" />
+        android:textSize="30sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:text="@string/CE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -330,19 +287,18 @@
         android:layout_marginTop="6dp"
         android:id="@+id/CE"
         android:textColor="@color/text"
+        style="@android:style/Widget.Material.Button"
         android:background="@color/transparent"
-        tools:ignore="NewApi"
-        android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:elevation="0dp" />
+        android:textSize="18sp" />
 
     <Button
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/delete"
         android:text="@string/delete"
         tools:text="@string/delete"
+        style="@style/AppTheme"
         android:background="@color/transparent"
         android:textColor="@color/text"
         android:textSize="36sp"
@@ -350,8 +306,7 @@
         android:textAllCaps="true"
         android:textAlignment="center"
         android:layout_above="@+id/nine"
-        android:layout_toEndOf="@+id/CE"
-        android:elevation="0dp" />
+        android:layout_toEndOf="@+id/CE" />
 
 
 </RelativeLayout>

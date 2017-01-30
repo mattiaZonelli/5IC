@@ -21,4 +21,5 @@
     <string name="sqrt_symbol">√</string>
     <string name="pi_symbol">\u03C0</string>
     <string name="euler_symbol">\u2107</string>
+    <string name="CE">CE</string>
 </resources>
