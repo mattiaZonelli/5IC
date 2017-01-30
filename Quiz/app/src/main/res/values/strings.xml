@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Quiz</string>
+
+    <string name="Question1">1) Internet nacque per scopi militari con il nome di ARPANET</string>
+    <string name="Question2">2) Il sistema operativo piu\' diffuso al mondo è Linux</string>
+    <string name="Question3">3) Steve Jobs fondò Microsoft nel 1982</string>
+    <string name="Question4">4) Tra le componenti hardware di un compuret vi è la scheda video</string>
+    <string name="Question5">5) Il Wi-fi prevede una connessione via cavo</string>
+    <string name="Question6">6) ISP sta per: Internet Service Provider</string>
+    <string name="Question7">7) Android fa schifo</string>
+
+    <string name="Question21">1) Yuri Chechi vinse la medaglia d\'oro ai giochi olimpici del 1996</string>
+    <string name="Question22">2) Rafael Nadal non e\' un tennista</string>
+    <string name="Question23">3) Fabio Grosso gioco\' nella squadra italiana durante i mondiali del 2006</string>
+    <string name="Question24">4) Nel calcio vi e\' un limite di goal per partita</string>
+    <string name="Question25">5) Lo Slamball e\' uno sport</string>
+    <string name="Question26">6) WaterPolo e\' uno sport correlato ai cavalli</string>
+    <string name="Question27">7) I Lakers sono una squadra di baseball</string>
+    <string name="T">Vero</string>
+    <string name="F">Falso</string>
+</resources>
+
