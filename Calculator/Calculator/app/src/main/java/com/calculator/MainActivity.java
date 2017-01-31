@@ -2,24 +2,34 @@ package com.calculator;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.OrientationEventListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.calculator.parser.ExpressionParser;
 
+import java.util.Locale;
+
 public class MainActivity extends Activity {
 
     private static String operations;
     private Number lastResult;
+    private int resize = 5;
+    private int resizeConstant = 60;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        operations = "";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        lastResult = null;
+        ((EditText) findViewById(R.id.display)).setMaxLines(7);
+        if (savedInstanceState != null) {
+            operations = savedInstanceState.getString("OPERATIONS");
+            lastResult = savedInstanceState.getDouble("LAST_RESULT");
+            setTextSize((EditText) findViewById(R.id.display));
+        } else {
+            lastResult = null;
+            operations = "";
+        }
         initListeners();
     }
 
@@ -46,12 +56,6 @@ public class MainActivity extends Activity {
         findViewById(R.id.neper).setOnClickListener(new ButtonListener(R.id.neper));
         findViewById(R.id.exp).setOnClickListener(new ButtonListener(R.id.exp));
         findViewById(R.id.CE).setOnClickListener(new ButtonListener(R.id.CE));
-        OrientationEventListener orientationEventListener=new OrientationEventListener(getApplicationContext()) {
-            @Override
-            public void onOrientationChanged(int orientation) {
-                setTextSize((EditText) findViewById(R.id.display));
-            }
-        };
     }
 
     private class ButtonListener implements View.OnClickListener {
@@ -71,7 +75,7 @@ public class MainActivity extends Activity {
                     operations = "";
                     lastResult = null;
                 } else if (code == R.id.delete) {
-                    if (operations.length() > 0) { //problema se cancello numero già presente
+                    if (operations.length() > 0) {
                         operations = operations.substring(0, operations.length() - 1);
                     }
                 } else {
@@ -92,24 +96,38 @@ public class MainActivity extends Activity {
                     operations = "Error";
                     lastResult = null;
                 } else {
-                    operations = "" + lastResult;
+                    operations = "" + (operations.length() > 7 ? String.format(Locale.getDefault(), "%2.2E", lastResult) : lastResult);
                 }
+                resizeConstant=60;
+                resize=5;
             }
             setTextSize(et);
             et.setText(operations);
+            Bundle bundle = new Bundle();
+
+            onSaveInstanceState(bundle);
             et.setSelection(et.length());
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("OPERATIONS", operations);
+        outState.putDouble("LAST_RESULT", lastResult == null ? 0.0 : lastResult.doubleValue());
+    }
 
     private void setTextSize(EditText et) {
-        if (operations.length() % 5 == 0 || (lastResult != null && lastResult.toString().equals(operations))) {
+        if (operations.length() % resize == 0 || (lastResult != null && lastResult.toString().equals(operations))) {
             if (operations.length() != 0) {
-                et.setTextSize((float) (60 / Math.log10(operations.length() == 1 || operations.length() == 0 ? 2 : operations.length())));
+                if (et.getLineCount() > et.getMaxLines()) {
+                    resizeConstant = 40;
+                    resize = 3;
+                }
             }
-        }
-        System.out.println(operations.length());
+            et.setTextSize((float) (resizeConstant / Math.log10(operations.length() == 1 || operations.length() == 0 ? 2 : operations.length())));
 
+        }
     }
 
     private Number compute(String operations) {

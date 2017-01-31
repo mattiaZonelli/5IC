@@ -315,7 +315,8 @@
         android:textStyle="normal|bold"
         tools:ignore="NewApi,RelativeOverlap"
         android:layout_below="@+id/delete"
-        android:layout_toEndOf="@+id/point" />
+        android:layout_toEndOf="@+id/point"
+        android:layout_above="@+id/point" />
 
     <Button
         android:id="@+id/delete"
