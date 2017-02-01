@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="domanda">Domanda</string>
+    <string name="btnFacile">QuizFacile</string>
+    <string name="btnDifficile">QuizDifficile</string>
+    <string name="btnTermina">Termina</string>
+
+    <string name="domanda1">Quanto è stata scoperta l America da quel simpaticone di Cristoforo Colombo?</string>
+    <string name="opzione1.1">Nel 1492</string>
+    <string name="opzione1.2">L 11 settembre 2001</string>
+    <string name="opzione1.3">Il 4 novembre 1918</string>
+    <string name="opzione1.4">Nessuna delle precedenti</string>
+
+    <string name="domanda2">Quanto è stata scoperta l America da quel simpaticone di Amerigo Vespucci?</string>
+    <string name="opzione2.1">Nel 1492</string>
+    <string name="opzione2.2">L 11 settembre 2001</string>
+    <string name="opzione2.3">Il 4 novembre 1918</string>
+    <string name="opzione2.4">Non ha scoperto l America</string>
+
+    <string name="domanda3">Quante dita ci sono nella mano di un delfino?</string>
+    <string name="opzione3.1">5</string>
+    <string name="opzione3.2">4</string>
+    <string name="opzione3.3">3</string>
+    <string name="opzione3.4">Non ha le mani</string>
+
+    <string name="domanda4" >Quanto bello è Incani da 1 a 10</string>
+    <string name="opzione4.1">10</string>
+    <string name="opzione4.2">11</string>
+    <string name="opzione4.3">12</string>
+    <string name="opzione4.4">Guarda che non si va in overflow ;-)</string>
+
+
+
+
+    <string name="d1">Perchè l intent di questo programma non legge il messaggio extra? </string>
+    <string name="o1.1">Solo Dio lo sa</string>
+    <string name="o1.2">Perchè Allah vuole</string>
+    <string name="o1.3">Per un preciso motivo tecnico</string>
+    <string name="o1.4">Nessuna delle precedenti</string>
+
+    <string name="d2">Perchè l omino di android è verde?</string>
+    <string name="o2.1">Per fare invidia a Bill Gates</string>
+    <string name="o2.2">Perchè Allah vuole </string>
+    <string name="o2.3">Perchè il verde ricorda le praterie del Missouri</string>
+    <string name="o2.4">Per la speranza dei programmatori di far funzionare le cose</string>
+
+
+
+
+
+</resources>
