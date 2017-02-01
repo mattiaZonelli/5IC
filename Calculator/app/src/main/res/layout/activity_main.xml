@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.eleonora.calculator.MainActivity">
+
+
+    <Button
+        android:text="@string/seven_digit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:id="@+id/sette"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:layout_above="@+id/quattro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/point_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/punto"
+        android:textSize="30sp"
+        tools:ignore="RelativeOverlap"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/equals_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uguale"
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/zero"
+        android:layout_toEndOf="@+id/zero" />
+
+    <Button
+        android:text="@string/zero_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zero"
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/punto"
+        android:layout_toEndOf="@+id/punto" />
+
+    <Button
+        android:text="@string/three_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tre"
+        android:textSize="30sp"
+        android:layout_above="@+id/uguale"
+        android:layout_toRightOf="@+id/due"
+        android:layout_toEndOf="@+id/due" />
+
+    <Button
+        android:text="@string/four_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quattro"
+        android:textSize="30sp"
+        android:layout_above="@+id/uno"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/nine_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nove"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/divisione"
+        android:layout_alignBottom="@+id/divisione"
+        android:layout_toRightOf="@+id/cinque"
+        android:layout_toEndOf="@+id/cinque" />
+
+    <Button
+        android:text="@string/two_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/due"
+        android:layout_alignBottom="@+id/sottrazione"
+        android:layout_toEndOf="@+id/uno"
+        android:layout_toRightOf="@+id/uno" />
+
+
+
+    <Button
+        android:text="@string/one_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uno"
+        android:textSize="30sp"
+        android:layout_below="@+id/cinque"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/display"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="200dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <Button
+        android:text="@string/eight_digit"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/otto"
+        android:fontFamily="sans-serif"
+        android:typeface="normal"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/nove"
+        android:layout_alignBottom="@+id/nove"
+        android:layout_toRightOf="@+id/sette"
+        android:layout_toEndOf="@+id/sette" />
+
+    <Button
+        android:text="@string/five_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cinque"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/sei"
+        android:layout_alignBottom="@+id/sei"
+        android:layout_toRightOf="@+id/quattro"
+        android:layout_toEndOf="@+id/quattro" />
+
+    <Button
+        android:text="@string/six_digit"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/digitColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sei"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/moltiplicazione"
+        android:layout_alignBottom="@+id/moltiplicazione"
+        android:layout_toRightOf="@+id/otto"
+        android:layout_toEndOf="@+id/otto" />
+
+    <Button
+        android:text="@string/over_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_height="wrap_content"
+        android:id="@+id/divisione"
+        android:textSize="30sp"
+        android:layout_above="@+id/sei"
+        android:layout_toRightOf="@+id/nove"
+        android:layout_toEndOf="@+id/nove"
+        android:layout_width="80dp" />
+
+    <Button
+        android:text="@string/per_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_height="wrap_content"
+        android:id="@+id/moltiplicazione"
+
+        android:textSize="30sp"
+        android:layout_above="@+id/tre"
+        android:layout_toRightOf="@+id/nove"
+        android:layout_toEndOf="@+id/nove"
+        android:layout_width="80dp" />
+
+    <Button
+        android:text="@string/minus_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sottrazione"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/tre"
+        android:layout_alignBottom="@+id/tre"
+        android:layout_toRightOf="@+id/uguale"
+        android:layout_toEndOf="@+id/uguale" />
+
+    <Button
+        android:text="@string/plus_symbol"
+        android:textStyle="bold"
+        android:textColor="@color/text"
+        android:background="@color/operatorColor"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/somma"
+
+        android:textSize="30sp"
+
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/uguale"
+        android:layout_toEndOf="@+id/uguale" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete"
+        android:text="@string/delete"
+        tools:text="@string/delete"
+        style="@style/AppTheme"
+        android:background="@color/operatorColor"
+        android:textColor="@color/text"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:layout_above="@+id/nove"
+        android:layout_toRightOf="@+id/nove"
+        android:layout_toEndOf="@+id/nove" />
+
+
+</RelativeLayout>
+
+
